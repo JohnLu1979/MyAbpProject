@@ -3,12 +3,13 @@ using Abp.Web.Mvc.Authorization;
 
 namespace CXD.Web.Controllers
 {
-    [AbpMvcAuthorize]
+    //[AbpMvcAuthorize]
     public class HomeController : CXDControllerBase
     {
         public ActionResult Index()
         {
-            return View("~/App/Main/views/layout/layout.cshtml"); //Layout of the angular application.
+            //return View("~/App/Main/views/layout/layout.cshtml"); //Layout of the angular application.
+            return Redirect("./swagger");
         }
 	}
 }
