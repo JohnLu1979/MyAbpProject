@@ -3,10 +3,10 @@ using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using CXD.Authorization.Roles;
 using CXD.Authorization.Users;
-using CXD.Enities;
+using CXD.Entities;
 using CXD.MultiTenancy;
 using MySql.Data.Entity;
-using CXD.Entities;
+
 namespace CXD.EntityFramework
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]

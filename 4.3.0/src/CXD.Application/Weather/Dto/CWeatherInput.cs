@@ -1,5 +1,5 @@
 ﻿using CXD.Base.Dto;
-using CXD.Enities;
+using CXD.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
