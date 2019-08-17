@@ -6,13 +6,15 @@ using CXD.Authorization.Users;
 using CXD.Enities;
 using CXD.MultiTenancy;
 using MySql.Data.Entity;
-
+using CXD.Entities;
 namespace CXD.EntityFramework
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class CXDDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
+        public virtual IDbSet<Notice> Notices { get; set; }
+        public virtual IDbSet<Account> Accounts { get; set; }
 
         public virtual IDbSet<CWeather> CWeatherObjects { get; set; }
         /* NOTE: 
