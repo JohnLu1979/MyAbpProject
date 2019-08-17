@@ -231,9 +231,9 @@
     <Compile Include="EntityFramework\CXDDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CXDRepositoryBase.cs" />
     <Compile Include="CXDDataModule.cs" />
-    <Compile Include="Migrations\201908170820586_Abp_MoveTo_Mysql.cs" />
-    <Compile Include="Migrations\201908170820586_Abp_MoveTo_Mysql.Designer.cs">
-      <DependentUpon>201908170820586_Abp_MoveTo_Mysql.cs</DependentUpon>
+    <Compile Include="Migrations\201908171142538_0818.cs" />
+    <Compile Include="Migrations\201908171142538_0818.Designer.cs">
+      <DependentUpon>201908171142538_0818.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -257,8 +257,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908170820586_Abp_MoveTo_Mysql.resx">
-      <DependentUpon>201908170820586_Abp_MoveTo_Mysql.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908171142538_0818.resx">
+      <DependentUpon>201908171142538_0818.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
