@@ -5,13 +5,15 @@ using CXD.Authorization.Roles;
 using CXD.Authorization.Users;
 using CXD.MultiTenancy;
 using MySql.Data.Entity;
-
+using CXD.Entities;
 namespace CXD.EntityFramework
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class CXDDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
+        public virtual IDbSet<Notice> Notices { get; set; }
+        public virtual IDbSet<Account> Accounts { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
