@@ -10,18 +10,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CXD.Entities
 {
-    public class Account :CreationAuditedEntity<long>
+    [Table("Notice")]
+    public class CNotice : FullAuditedEntity<int> 
     {
         [MaxLength(50)]
-        public virtual string AccountName { get; set; }
+        public virtual string Title { get; set; }
         [MaxLength(50)]
-        public virtual string UserName { get; set; }
-        [MaxLength(50)]
-        public virtual string Password { get; set; }
- 
-        public virtual int IMEICode { get; set; }
-
-        public virtual bool IsActivated { get; set; }
-
+        public virtual string NewsAuthor { get; set; }
+        public virtual int? DisplayIndex { get; set; }
+       [MaxLength]
+        public virtual string NewsContent { get; set; }
     }
 }
