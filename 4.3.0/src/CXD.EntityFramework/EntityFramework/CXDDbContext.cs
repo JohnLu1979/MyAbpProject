@@ -4,9 +4,11 @@ using Abp.Zero.EntityFramework;
 using CXD.Authorization.Roles;
 using CXD.Authorization.Users;
 using CXD.MultiTenancy;
+using MySql.Data.Entity;
 
 namespace CXD.EntityFramework
 {
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class CXDDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
