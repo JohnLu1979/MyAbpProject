@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CXD.Enities
+namespace CXD.Entities
 {
     public enum WeatherType {
         Short_Term = 1,
