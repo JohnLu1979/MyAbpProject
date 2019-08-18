@@ -1,17 +1,14 @@
 ﻿using CXD.Base.Dto;
-using CXD.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CXD.Weather.Dto
+namespace CXD.Notice.Dto
 {
-    public class CWeatherInput : CBaseInput
+  public  class NoticeInput:CBaseInput
     {
         public virtual string Title { get; set; }
-        public virtual WeatherType Type { get; set; }
-        public virtual string Content { get; set; }
     }
 }

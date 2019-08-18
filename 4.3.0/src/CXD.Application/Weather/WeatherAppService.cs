@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using CXD.Base;
 using CXD.Base.Dto;
-using CXD.Enities;
+using CXD.Entities;
 using CXD.Weather;
 using CXD.Weather.Dto;
 

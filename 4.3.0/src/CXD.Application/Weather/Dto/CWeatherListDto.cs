@@ -1,7 +1,7 @@
 ﻿using Abp.AutoMapper;
 using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
-using CXD.Enities;
+using CXD.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CXD.Weather.Dto
 {
-    [AutoMapFrom(typeof(CXD.Enities.CWeather))]
+    [AutoMapFrom(typeof(CXD.Entities.CWeather))]
     public class CWeatherDto : FullAuditedEntity<int>
     {
         public virtual string Title { get; set; }
