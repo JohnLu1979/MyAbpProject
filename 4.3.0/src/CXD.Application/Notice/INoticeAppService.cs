@@ -13,9 +13,8 @@ namespace CXD.Notice
     {
         CDataResults<NoticeListDto> GetAll(NoticeInput input);
         CDataResult<NoticeListDto> GetNoticeDetail(NoticeInput input);
-
-        CDataResult<NoticeListDto> AddNotice(NoticeInput input);
-
         CDataResult<NoticeListDto> UpdateNotice(NoticeInput input);
+        CDataResult<int> AddNotice(NoticeInput input);
+        CDataResult<int> NoticeDelete(NoticeInput input);
     }
 }

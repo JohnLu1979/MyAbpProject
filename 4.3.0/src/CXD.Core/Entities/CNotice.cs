@@ -18,7 +18,7 @@ namespace CXD.Entities
         [MaxLength(50)]
         public virtual string NewsAuthor { get; set; }
         public virtual int? DisplayIndex { get; set; }
-       [MaxLength]
+         
         public virtual string NewsContent { get; set; }
     }
 }
