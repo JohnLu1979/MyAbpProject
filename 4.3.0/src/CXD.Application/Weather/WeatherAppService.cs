@@ -15,12 +15,12 @@ using CXD.Weather.Dto;
 
 namespace CXD.WmtRain
 {
-    public class WmtRainAppService : CBaseAppService, IWeatherAppService
+    public class WeatherAppService : CBaseAppService, IWeatherAppService
     {
 
         private readonly IRepository<CWeather, int> _weatherRepository;
 
-        public WmtRainAppService(
+        public WeatherAppService(
             IRepository<CWeather, int> weatherRepository
 
             ) : base()
@@ -29,7 +29,7 @@ namespace CXD.WmtRain
 
         }
 
-        public CDataResults<CWeatherDto> GetWeathers(CWeatherInput input)
+        public Task<CDataResults<CWeatherDto>> GetWeathers(CWeatherInput input)
         {
             //Extract data from DB
             var query = this._weatherRepository.GetAll();
@@ -41,13 +41,13 @@ namespace CXD.WmtRain
 
             var result = query.ToList().MapTo<List<CWeatherDto>>();
 
-            return new CDataResults<CWeatherDto>()
+            return Task.FromResult(new CDataResults<CWeatherDto>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result,
                 Total = query.Count()
-            };
+            });
         }
 
         public CDataResult<int> AddWeather(CWeatherInput input) {
@@ -79,6 +79,10 @@ namespace CXD.WmtRain
             if (weather == null) {
                 result.IsSuccess = false;
             }
+            weather.Content = input.Content;
+            weather.Title = input.Title;
+            weather.Type = input.Type;
+
             var updatedWeather = this._weatherRepository.Update(weather);
 
             if (updatedWeather == null)

@@ -9,7 +9,7 @@ using Abp.Domain.Entities.Auditing;
 
 namespace CXD.Notice.Dto
 {
-    [AutoMapFrom(typeof(CXD.Entities.CNotice))]
+    [AutoMapFrom(typeof(CXD.Entities.Notice))]
    public class NoticeListDto : FullAuditedEntity<int>
     {
         public virtual string Title { get; set;}

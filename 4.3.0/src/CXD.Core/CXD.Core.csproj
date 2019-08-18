@@ -212,6 +212,7 @@
     <Compile Include="Configuration\AppSettingNames.cs" />
     <Compile Include="Configuration\AppSettingProvider.cs" />
     <Compile Include="Editions\EditionManager.cs" />
+    <Compile Include="Entities\CTide.cs" />
     <Compile Include="Entities\CWeather.cs" />
     <Compile Include="Entities\CAccount.cs" />
     <Compile Include="Entities\CNotice.cs" />

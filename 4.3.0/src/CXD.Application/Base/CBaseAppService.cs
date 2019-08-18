@@ -8,7 +8,7 @@ using System.Web;
 
 namespace CXD.Base
 {
-    public class CBaseAppService
+    public class CBaseAppService: CXDAppServiceBase
     {
         public CBaseAppService()
         {
