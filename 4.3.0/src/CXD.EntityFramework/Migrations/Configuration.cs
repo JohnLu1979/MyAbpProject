@@ -47,8 +47,8 @@ namespace CXD.Migrations
                 new InitialHostDbBuilder(context).Create();
 
                 //Default tenant seed (in host database).
-                new DefaultTenantCreator(context).Create();
-                new TenantRoleAndUserBuilder(context, 1).Create();
+                //new DefaultTenantCreator(context).Create();
+                //new TenantRoleAndUserBuilder(context, 1).Create();
             }
             else
             {

@@ -10,19 +10,29 @@ namespace CXD.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Accounts",
+                "dbo.Account",
                 c => new
                     {
-                        Id = c.Long(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         AccountName = c.String(maxLength: 50, storeType: "nvarchar"),
                         UserName = c.String(maxLength: 50, storeType: "nvarchar"),
                         Password = c.String(maxLength: 50, storeType: "nvarchar"),
                         IMEICode = c.Int(nullable: false),
                         IsActivated = c.Boolean(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(precision: 0),
+                        LastModificationTime = c.DateTime(precision: 0),
+                        LastModifierUserId = c.Long(),
                         CreationTime = c.DateTime(nullable: false, precision: 0),
                         CreatorUserId = c.Long(),
-                    })
-                .PrimaryKey(t => t.Id);
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_CAccount_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.IsDeleted);
             
             CreateTable(
                 "dbo.AbpAuditLogs",
@@ -274,15 +284,25 @@ namespace CXD.Migrations
                 "dbo.Notice",
                 c => new
                     {
-                        Id = c.Long(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         Title = c.String(maxLength: 50, storeType: "nvarchar"),
                         NewsAuthor = c.String(maxLength: 50, storeType: "nvarchar"),
                         DisplayIndex = c.Int(),
                         NewsContent = c.String(unicode: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(precision: 0),
+                        LastModificationTime = c.DateTime(precision: 0),
+                        LastModifierUserId = c.Long(),
                         CreationTime = c.DateTime(nullable: false, precision: 0),
                         CreatorUserId = c.Long(),
-                    })
-                .PrimaryKey(t => t.Id);
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_CNotice_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.IsDeleted);
             
             CreateTable(
                 "dbo.AbpNotifications",
@@ -542,21 +562,21 @@ namespace CXD.Migrations
                 .ForeignKey("dbo.AbpUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.TenantId)
                 .Index(t => t.UserId);
-            
+
             CreateTable(
                 "dbo.AbpSettings",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        UserId = c.Long(),
-                        Name = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
-                        Value = c.String(maxLength: 2000, storeType: "nvarchar"),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    UserId = c.Long(),
+                    Name = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
+                    Value = c.String(maxLength: 2000, storeType: "nvarchar"),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_Setting_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
@@ -666,7 +686,6 @@ namespace CXD.Migrations
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.TenantId)
-                .Index(t => new { t.UserId, t.TenantId })
                 .Index(t => new { t.TenancyName, t.UserNameOrEmailAddress, t.Result });
             
             CreateTable(
@@ -738,7 +757,6 @@ namespace CXD.Migrations
             DropIndex("dbo.AbpUserNotifications", new[] { "UserId", "State", "CreationTime" });
             DropIndex("dbo.AbpUserNotifications", new[] { "TenantId" });
             DropIndex("dbo.AbpUserLoginAttempts", new[] { "TenancyName", "UserNameOrEmailAddress", "Result" });
-            DropIndex("dbo.AbpUserLoginAttempts", new[] { "UserId", "TenantId" });
             DropIndex("dbo.AbpUserLoginAttempts", new[] { "TenantId" });
             DropIndex("dbo.AbpUserAccounts", new[] { "IsDeleted" });
             DropIndex("dbo.AbpTenants", new[] { "CreatorUserId" });
@@ -747,7 +765,6 @@ namespace CXD.Migrations
             DropIndex("dbo.AbpTenants", new[] { "IsDeleted" });
             DropIndex("dbo.AbpTenants", new[] { "EditionId" });
             DropIndex("dbo.AbpTenantNotifications", new[] { "TenantId" });
-            DropIndex("dbo.AbpSettings", new[] { "TenantId", "Name", "UserId" });
             DropIndex("dbo.AbpUserRoles", new[] { "UserId" });
             DropIndex("dbo.AbpUserRoles", new[] { "TenantId" });
             DropIndex("dbo.AbpUserLogins", new[] { "UserId" });
@@ -773,12 +790,12 @@ namespace CXD.Migrations
             DropIndex("dbo.AbpOrganizationUnitRoles", new[] { "TenantId" });
             DropIndex("dbo.AbpNotificationSubscriptions", new[] { "NotificationName", "EntityTypeName", "EntityId", "UserId" });
             DropIndex("dbo.AbpNotificationSubscriptions", new[] { "TenantId" });
+            DropIndex("dbo.Notice", new[] { "IsDeleted" });
             DropIndex("dbo.AbpLanguageTexts", new[] { "TenantId" });
             DropIndex("dbo.AbpLanguages", new[] { "IsDeleted" });
             DropIndex("dbo.AbpLanguages", new[] { "TenantId" });
             DropIndex("dbo.AbpEntityChangeSets", "IX_TenantId_UserId");
             DropIndex("dbo.AbpEntityChangeSets", new[] { "TenantId" });
-            DropIndex("dbo.AbpEntityChangeSets", new[] { "TenantId", "Reason" });
             DropIndex("dbo.AbpEntityChangeSets", "IX_TenantId_CreationTime");
             DropIndex("dbo.AbpEntityPropertyChanges", new[] { "TenantId" });
             DropIndex("dbo.AbpEntityPropertyChanges", new[] { "EntityChangeId" });
@@ -791,6 +808,7 @@ namespace CXD.Migrations
             DropIndex("dbo.CWeathers", new[] { "IsDeleted" });
             DropIndex("dbo.AbpBackgroundJobs", new[] { "IsAbandoned", "NextTryTime" });
             DropIndex("dbo.AbpAuditLogs", new[] { "TenantId" });
+            DropIndex("dbo.Account", new[] { "IsDeleted" });
             DropTable("dbo.AbpUserOrganizationUnits",
                 removedAnnotations: new Dictionary<string, object>
                 {
@@ -878,7 +896,11 @@ namespace CXD.Migrations
                     { "DynamicFilter_NotificationSubscriptionInfo_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 });
             DropTable("dbo.AbpNotifications");
-            DropTable("dbo.Notice");
+            DropTable("dbo.Notice",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_CNotice_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
             DropTable("dbo.AbpLanguageTexts",
                 removedAnnotations: new Dictionary<string, object>
                 {
@@ -929,7 +951,11 @@ namespace CXD.Migrations
                 {
                     { "DynamicFilter_AuditLog_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 });
-            DropTable("dbo.Accounts");
+            DropTable("dbo.Account",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_CAccount_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
         }
     }
 }
