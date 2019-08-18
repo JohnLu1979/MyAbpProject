@@ -10,7 +10,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CXD.Entities
 {
-    public class Account :CreationAuditedEntity<long>
+    [Table("Account")]
+    public class CAccount : FullAuditedEntity<int>
     {
         [MaxLength(50)]
         public virtual string AccountName { get; set; }

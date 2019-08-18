@@ -13,8 +13,8 @@ namespace CXD.EntityFramework
     public class CXDDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
-        public virtual IDbSet<Notice> Notices { get; set; }
-        public virtual IDbSet<Account> Accounts { get; set; }
+        public virtual IDbSet<CNotice> Notices { get; set; }
+        public virtual IDbSet<CAccount> Accounts { get; set; }
 
         public virtual IDbSet<CWeather> CWeatherObjects { get; set; }
         public virtual IDbSet<CTide> CTideObjects { get; set; }

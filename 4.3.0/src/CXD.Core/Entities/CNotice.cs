@@ -11,14 +11,14 @@ using System.ComponentModel.DataAnnotations;
 namespace CXD.Entities
 {
     [Table("Notice")]
-    public class Notice : CreationAuditedEntity<long> 
+    public class CNotice : FullAuditedEntity<int> 
     {
         [MaxLength(50)]
         public virtual string Title { get; set; }
         [MaxLength(50)]
         public virtual string NewsAuthor { get; set; }
         public virtual int? DisplayIndex { get; set; }
-       [MaxLength]
+         
         public virtual string NewsContent { get; set; }
     }
 }
