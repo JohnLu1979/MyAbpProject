@@ -48,6 +48,32 @@ namespace CXD.Api.Controllers
             };
             return ExcelExporter<TideList>.GetFileResponse(fileName, sheetName, list, header, propertySelectors);
         }
+
+        //public async Task<IActionResult> FileSave(List<IFormFile> files)
+        //{
+        //    var files = Request.Form.Files;
+        //    long size = files.Sum(f => f.Length);
+        //    string webRootPath = _hostingEnvironment.WebRootPath;
+        //    string contentRootPath = _hostingEnvironment.ContentRootPath;
+        //    foreach (var formFile in files)
+        //    {
+        //        if (formFile.Length > 0)
+        //        {
+
+        //            string fileExt = GetFileExt(formFile.FileName); //文件扩展名，不含“.”
+        //            long fileSize = formFile.Length; //获得文件大小，以字节为单位
+        //            string newFileName = System.Guid.NewGuid().ToString() + "." + fileExt; //随机生成新的文件名
+        //            var filePath = webRootPath + "/upload/" + newFileName;
+        //            using (var stream = new FileStream(filePath, FileMode.Create))
+        //            {
+
+        //                await formFile.CopyToAsync(stream);
+        //            }
+        //        }
+        //    }
+
+        //    return Ok(new { count = files.Count, size });
+        //}
     }
     public class TideList
     {
