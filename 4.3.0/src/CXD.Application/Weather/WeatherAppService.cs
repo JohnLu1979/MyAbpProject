@@ -33,7 +33,13 @@ namespace CXD.WmtRain
         {
             //Extract data from DB
             var query = this._weatherRepository.GetAll();
-
+            if (!string.IsNullOrEmpty(input.Title))
+            {
+                query = query.Where(r => r.Title.Contains(input.Title));
+            }
+            if (input.Type.HasValue) {
+                query = query.Where(r => r.Type == input.Type);
+            }
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
                 query = query.OrderBy(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
@@ -54,7 +60,7 @@ namespace CXD.WmtRain
             var newWeather = new CWeather()
             {
                 Title = input.Title,
-                Type = input.Type,
+                Type = input.Type.Value,
                 Content = input.Content
             };
 
@@ -81,7 +87,7 @@ namespace CXD.WmtRain
             }
             weather.Content = input.Content;
             weather.Title = input.Title;
-            weather.Type = input.Type;
+            weather.Type = input.Type.Value;
 
             var updatedWeather = this._weatherRepository.Update(weather);
 
