@@ -211,6 +211,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\AccountAppService.cs" />
+    <Compile Include="Account\DTO\AccountInput.cs" />
+    <Compile Include="Account\DTO\AccountListDto.cs" />
+    <Compile Include="Account\IAccountAppService.cs" />
     <Compile Include="Base\CBaseAppService.cs" />
     <Compile Include="Base\Dto\CBaseInput.cs" />
     <Compile Include="Base\Dto\CDataResults.cs" />
@@ -228,6 +232,10 @@
     <Compile Include="Configuration\IConfigurationAppService.cs" />
     <Compile Include="Configuration\Ui\UiThemeInfo.cs" />
     <Compile Include="Configuration\Ui\UiThemes.cs" />
+    <Compile Include="Login\Dto\LoginInput.cs" />
+    <Compile Include="Login\Dto\LoginListDto.cs" />
+    <Compile Include="Login\ILoginAppService.cs" />
+    <Compile Include="Login\LoginAppService.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\EditTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\TenantDto.cs" />

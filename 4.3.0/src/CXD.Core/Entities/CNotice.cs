@@ -13,12 +13,10 @@ namespace CXD.Entities
     [Table("Notice")]
     public class CNotice : FullAuditedEntity<int> 
     {
-        [MaxLength(50)]
+
         public virtual string Title { get; set; }
-        [MaxLength(50)]
         public virtual string NewsAuthor { get; set; }
         public virtual int? DisplayIndex { get; set; }
-         
         public virtual string NewsContent { get; set; }
     }
 }
