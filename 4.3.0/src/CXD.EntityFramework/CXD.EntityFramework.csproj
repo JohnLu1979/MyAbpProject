@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201908201133392_20190820.Designer.cs">
       <DependentUpon>201908201133392_20190820.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908201219420_tide.cs" />
+    <Compile Include="Migrations\201908201219420_tide.Designer.cs">
+      <DependentUpon>201908201219420_tide.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
@@ -266,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908201133392_20190820.resx">
       <DependentUpon>201908201133392_20190820.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201219420_tide.resx">
+      <DependentUpon>201908201219420_tide.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

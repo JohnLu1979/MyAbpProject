@@ -11446,3 +11446,235 @@ DEBUG 2019-08-20 19:34:15,252 [1    ] Abp.Logging.LogHelper                    -
 DEBUG 2019-08-20 19:34:15,253 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Login.ILoginAppService' with service name 'app/login'.
 DEBUG 2019-08-20 19:34:15,254 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Configuration.IConfigurationAppService' with service name 'app/configuration'.
 DEBUG 2019-08-20 19:34:15,255 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Account.IAccountAppService' with service name 'app/account'.
+DEBUG 2019-08-20 19:43:36,218 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-20 19:43:36,229 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-08-20 19:43:36,235 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Web.CXDWebModule, CXD.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,236 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDDataModule, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDCoreModule, CXD.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDApplicationModule, CXD.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Api.CXDWebApiModule, CXD.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:36,241 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-08-20 19:43:36,474 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 19:43:36,474 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 19:43:36,474 [1    ] o.Configuration.LanguageManagementConfig - Converted CXD (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 19:43:36,474 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 19:43:36,790 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: CXD.EntityFramework.CXDDbContext, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 19:43:38,780 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-20 19:43:38,858 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-20 19:43:38,897 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-20 19:43:38,914 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CXD
+DEBUG 2019-08-20 19:43:38,945 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-20 19:43:39,034 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2019-08-20 19:43:39,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2019-08-20 19:43:39,082 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Weather.Dto.CWeatherDto
+DEBUG 2019-08-20 19:43:39,087 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-20 19:43:39,087 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-20 19:43:39,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.CreateUserDto
+DEBUG 2019-08-20 19:43:39,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UpdateUserDto
+DEBUG 2019-08-20 19:43:39,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UserDto
+DEBUG 2019-08-20 19:43:39,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-20 19:43:39,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.PermissionDto
+DEBUG 2019-08-20 19:43:39,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.RoleDto
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Notice.Dto.NoticeListDto
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.EditTenantDto
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Login.Dto.LoginListDto
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Account.DTO.AccountListDto
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantChangeViewModel
+DEBUG 2019-08-20 19:43:39,089 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2019-08-20 19:43:40,953 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Weather.IWeatherAppService' with service name 'app/weather'.
+DEBUG 2019-08-20 19:43:40,954 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2019-08-20 19:43:40,955 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2019-08-20 19:43:40,955 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2019-08-20 19:43:40,956 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Notice.INoticeAppService' with service name 'app/notice'.
+DEBUG 2019-08-20 19:43:40,957 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2019-08-20 19:43:40,958 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Login.ILoginAppService' with service name 'app/login'.
+DEBUG 2019-08-20 19:43:40,959 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2019-08-20 19:43:40,960 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Account.IAccountAppService' with service name 'app/account'.
+DEBUG 2019-08-20 20:18:01,366 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-20 20:18:01,378 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-08-20 20:18:01,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Web.CXDWebModule, CXD.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,385 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDDataModule, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,386 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,386 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,386 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,386 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDCoreModule, CXD.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDApplicationModule, CXD.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Api.CXDWebApiModule, CXD.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,388 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,388 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,388 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,388 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:01,391 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-08-20 20:18:01,633 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:18:01,633 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:18:01,633 [1    ] o.Configuration.LanguageManagementConfig - Converted CXD (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:18:01,633 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:18:01,928 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: CXD.EntityFramework.CXDDbContext, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:18:03,899 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-20 20:18:03,974 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-20 20:18:04,019 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-20 20:18:04,038 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CXD
+DEBUG 2019-08-20 20:18:04,066 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-20 20:18:04,195 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2019-08-20 20:18:04,242 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2019-08-20 20:18:04,242 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Weather.Dto.CWeatherDto
+DEBUG 2019-08-20 20:18:04,246 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-20 20:18:04,247 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-20 20:18:04,247 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.CreateUserDto
+DEBUG 2019-08-20 20:18:04,247 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UpdateUserDto
+DEBUG 2019-08-20 20:18:04,247 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UserDto
+DEBUG 2019-08-20 20:18:04,247 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-20 20:18:04,248 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.PermissionDto
+DEBUG 2019-08-20 20:18:04,262 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.RoleDto
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Notice.Dto.NoticeListDto
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.EditTenantDto
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Login.Dto.LoginListDto
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Account.DTO.AccountListDto
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantChangeViewModel
+DEBUG 2019-08-20 20:18:04,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2019-08-20 20:18:06,168 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Weather.IWeatherAppService' with service name 'app/weather'.
+DEBUG 2019-08-20 20:18:06,169 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2019-08-20 20:18:06,170 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2019-08-20 20:18:06,171 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2019-08-20 20:18:06,171 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Notice.INoticeAppService' with service name 'app/notice'.
+DEBUG 2019-08-20 20:18:06,172 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2019-08-20 20:18:06,173 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Login.ILoginAppService' with service name 'app/login'.
+DEBUG 2019-08-20 20:18:06,174 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2019-08-20 20:18:06,174 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Account.IAccountAppService' with service name 'app/account'.
+DEBUG 2019-08-20 20:21:39,676 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-20 20:21:39,688 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-08-20 20:21:39,693 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Web.CXDWebModule, CXD.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDDataModule, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,695 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDCoreModule, CXD.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDApplicationModule, CXD.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Api.CXDWebApiModule, CXD.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,696 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,697 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,697 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,697 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:39,699 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-08-20 20:21:39,931 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:21:39,931 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:21:39,931 [1    ] o.Configuration.LanguageManagementConfig - Converted CXD (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:21:39,931 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:21:40,232 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: CXD.EntityFramework.CXDDbContext, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:21:42,180 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-20 20:21:42,250 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-20 20:21:42,290 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-20 20:21:42,306 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CXD
+DEBUG 2019-08-20 20:21:42,333 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-20 20:21:42,442 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2019-08-20 20:21:42,490 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2019-08-20 20:21:42,490 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Weather.Dto.CWeatherDto
+DEBUG 2019-08-20 20:21:42,495 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-20 20:21:42,496 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-20 20:21:42,496 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.CreateUserDto
+DEBUG 2019-08-20 20:21:42,496 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UpdateUserDto
+DEBUG 2019-08-20 20:21:42,496 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UserDto
+DEBUG 2019-08-20 20:21:42,496 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-20 20:21:42,496 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.PermissionDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.RoleDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Notice.Dto.NoticeListDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.EditTenantDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Login.Dto.LoginListDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Account.DTO.AccountListDto
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantChangeViewModel
+DEBUG 2019-08-20 20:21:42,497 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2019-08-20 20:21:44,384 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Weather.IWeatherAppService' with service name 'app/weather'.
+DEBUG 2019-08-20 20:21:44,385 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2019-08-20 20:21:44,386 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2019-08-20 20:21:44,387 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2019-08-20 20:21:44,388 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Notice.INoticeAppService' with service name 'app/notice'.
+DEBUG 2019-08-20 20:21:44,388 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2019-08-20 20:21:44,389 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Login.ILoginAppService' with service name 'app/login'.
+DEBUG 2019-08-20 20:21:44,390 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2019-08-20 20:21:44,391 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Account.IAccountAppService' with service name 'app/account'.
+DEBUG 2019-08-20 20:32:08,756 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-20 20:32:08,766 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-08-20 20:32:08,772 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Web.CXDWebModule, CXD.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,773 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDDataModule, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,773 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,773 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,774 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,774 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,774 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,774 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,774 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDCoreModule, CXD.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,774 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.CXDApplicationModule, CXD.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,774 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CXD.Api.CXDWebApiModule, CXD.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:08,778 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-08-20 20:32:09,008 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:32:09,009 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:32:09,009 [1    ] o.Configuration.LanguageManagementConfig - Converted CXD (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:32:09,009 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-20 20:32:09,295 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: CXD.EntityFramework.CXDDbContext, CXD.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-20 20:32:11,164 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-20 20:32:11,235 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-20 20:32:11,278 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-20 20:32:11,295 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CXD
+DEBUG 2019-08-20 20:32:11,325 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-20 20:32:11,418 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2019-08-20 20:32:11,468 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 17 classes define auto mapping attributes
+DEBUG 2019-08-20 20:32:11,468 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Weather.Dto.CWeatherDto
+DEBUG 2019-08-20 20:32:11,473 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-20 20:32:11,473 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-20 20:32:11,474 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.CreateUserDto
+DEBUG 2019-08-20 20:32:11,474 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UpdateUserDto
+DEBUG 2019-08-20 20:32:11,474 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Users.Dto.UserDto
+DEBUG 2019-08-20 20:32:11,474 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-20 20:32:11,474 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.PermissionDto
+DEBUG 2019-08-20 20:32:11,474 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Roles.Dto.RoleDto
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Notice.Dto.NoticeListDto
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.EditTenantDto
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Login.Dto.LoginListDto
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Account.DTO.AccountListDto
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantChangeViewModel
+DEBUG 2019-08-20 20:32:11,475 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - CXD.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2019-08-20 20:32:13,137 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Weather.IWeatherAppService' with service name 'app/weather'.
+DEBUG 2019-08-20 20:32:13,137 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2019-08-20 20:32:13,138 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2019-08-20 20:32:13,139 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2019-08-20 20:32:13,140 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Notice.INoticeAppService' with service name 'app/notice'.
+DEBUG 2019-08-20 20:32:13,140 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2019-08-20 20:32:13,141 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Login.ILoginAppService' with service name 'app/login'.
+DEBUG 2019-08-20 20:32:13,142 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Configuration.IConfigurationAppService' with service name 'app/configuration'.
+DEBUG 2019-08-20 20:32:13,143 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'CXD.Account.IAccountAppService' with service name 'app/account'.
