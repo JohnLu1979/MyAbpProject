@@ -28,7 +28,7 @@ namespace CXD.Notice
         public CDataResults<NoticeListDto> GetAll(NoticeInput input)
         {
             var query = this._noticeRepository.GetAll();
-            if (input.Title.Length > 0)
+            if (input.Title != null)
             {
                 query = query.Where(p => p.Title.Contains(input.Title));
             }
@@ -115,12 +115,12 @@ namespace CXD.Notice
                 NewsContent = input.NewsContent
             };
 
-            var newWeatherId = this._noticeRepository.InsertAndGetId(newNotice);
+            var newNoticeId = this._noticeRepository.InsertAndGetId(newNotice);
             return new CDataResult<int>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
-                Data = newWeatherId
+                Data = newNoticeId
             };
         }
 

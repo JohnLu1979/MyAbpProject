@@ -232,6 +232,10 @@
     <Compile Include="Configuration\IConfigurationAppService.cs" />
     <Compile Include="Configuration\Ui\UiThemeInfo.cs" />
     <Compile Include="Configuration\Ui\UiThemes.cs" />
+    <Compile Include="Login\Dto\LoginInput.cs" />
+    <Compile Include="Login\Dto\LoginListDto.cs" />
+    <Compile Include="Login\ILoginAppService.cs" />
+    <Compile Include="Login\LoginAppService.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\EditTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\TenantDto.cs" />

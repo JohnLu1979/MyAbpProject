@@ -231,9 +231,13 @@
     <Compile Include="EntityFramework\CXDDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CXDRepositoryBase.cs" />
     <Compile Include="CXDDataModule.cs" />
-    <Compile Include="Migrations\201908180504341_2019081801.cs" />
-    <Compile Include="Migrations\201908180504341_2019081801.Designer.cs">
-      <DependentUpon>201908180504341_2019081801.cs</DependentUpon>
+    <Compile Include="Migrations\201908200408110_notice.cs" />
+    <Compile Include="Migrations\201908200408110_notice.Designer.cs">
+      <DependentUpon>201908200408110_notice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908201133392_20190820.cs" />
+    <Compile Include="Migrations\201908201133392_20190820.Designer.cs">
+      <DependentUpon>201908201133392_20190820.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -257,8 +261,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908180504341_2019081801.resx">
-      <DependentUpon>201908180504341_2019081801.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908200408110_notice.resx">
+      <DependentUpon>201908200408110_notice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908201133392_20190820.resx">
+      <DependentUpon>201908201133392_20190820.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
