@@ -25,6 +25,7 @@ namespace CXD.Api
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
             var cors = new EnableCorsAttribute("*", "*", "*");
+            cors.SupportsCredentials = true;
             GlobalConfiguration.Configuration.EnableCors(cors);
             ConfigureSwaggerUi();
         }
