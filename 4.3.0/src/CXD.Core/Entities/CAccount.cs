@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CXD.Entities
 {
-    [Table("Account")]
+    [Table("zzd_Accounts")]
     public class CAccount : FullAuditedEntity<int>
     {
         [MaxLength(50)]
