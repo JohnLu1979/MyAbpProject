@@ -52,7 +52,7 @@ namespace CXD.Account
 
         }
 
-        public CDataResult<int> changePassword(AccountInput input)
+        public CDataResult<int> ChangePassword(AccountInput input)
         {
             throw new NotImplementedException();
         }
@@ -75,9 +75,9 @@ namespace CXD.Account
             {
                 query = query.Where(p => p.AccountName.Contains(input.searchContent) || p.UserName.Contains(input.searchContent));
             }
-            if(!string.IsNullOrWhiteSpace(input.IsActivated))
+            if (!string.IsNullOrWhiteSpace(input.IsActivated))
             {
-                query = query.Where(w => w.IsActivated== input.IsActivated);
+                query = query.Where(w => w.IsActivated == input.IsActivated);
             }
 
             var total = query.Count();
@@ -151,6 +151,39 @@ namespace CXD.Account
             {
                 result.IsSuccess = true;
                 result.Data = updateNotice.MapTo<AccountListDto>();
+            }
+            return result;
+        }
+        public CDataResult<AccountListDto> ChangeStatus(AccountInput input)
+        {
+            var result = new CDataResult<AccountListDto>()
+            {
+                IsSuccess = false,
+                ErrorMessage = null,
+                Data = null
+            };
+            var account = this._accountRepository.Get(input.Id);
+            if (account == null)
+            {
+                result.IsSuccess = false;
+                result.ErrorMessage = "用户启用失败！";
+            }
+            else
+            {
+                account.IsActivated = input.IsActivated;
+                account.Id = input.Id;
+            }
+            var updateAccount = this._accountRepository.Update(account);
+
+            if (updateAccount == null)
+            {
+                result.IsSuccess = false;
+                result.ErrorMessage = "用户启用失败！";
+            }
+            else
+            {
+                result.IsSuccess = true;
+                result.Data = updateAccount.MapTo<AccountListDto>();
             }
             return result;
         }

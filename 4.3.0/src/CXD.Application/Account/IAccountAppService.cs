@@ -16,6 +16,8 @@ namespace CXD.Account
         CDataResult<AccountListDto> Update(AccountInput input);
         CDataResult<int> Add(AccountInput input);
         CDataResult<int> Delete(AccountInput input);
-        CDataResult<int> changePassword(AccountInput input);
+        CDataResult<int> ChangePassword(AccountInput input);
+        CDataResult<AccountListDto> ChangeStatus(AccountInput input);
+
     }
 }
