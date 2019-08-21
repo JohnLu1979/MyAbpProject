@@ -20,9 +20,9 @@ namespace CXD.Entities
         [MaxLength(50)]
         public virtual string Password { get; set; }
  
-        public virtual int IMEICode { get; set; }
+        public virtual string IMEICode { get; set; }
 
-        public virtual bool IsActivated { get; set; }
+        public virtual string IsActivated { get; set; }
 
     }
 }
