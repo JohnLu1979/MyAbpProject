@@ -32,9 +32,10 @@ namespace CXD.Notice
             {
                 query = query.Where(p => p.Title.Contains(input.Title));
             }
+            var total = query.Count();
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
-                query = query.OrderBy(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                query = query.OrderByDescending(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
             }
             var result = query.ToList().MapTo<List<NoticeListDto>>();
 
@@ -43,7 +44,7 @@ namespace CXD.Notice
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result,
-                Total = query.Count()
+                Total = total
             };
         }
 

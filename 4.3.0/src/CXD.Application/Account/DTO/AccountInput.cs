@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CXD.Base.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace CXD.Account.DTO
 {
-    public class AccountInput
+    public class AccountInput : CBaseInput
     {
+
+        public virtual string searchContent { get; set; }
+
         public virtual string AccountName { get; set; }
 
         public virtual string UserName { get; set; }
         public virtual string Password { get; set; }
 
-        public virtual int IMEICode { get; set; }
-        public virtual bool IsActivated { get; set; }
+        public virtual string IMEICode { get; set; }
+        public virtual string IsActivated { get; set; }
     }
 }
