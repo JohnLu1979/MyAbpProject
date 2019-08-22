@@ -231,17 +231,9 @@
     <Compile Include="EntityFramework\CXDDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CXDRepositoryBase.cs" />
     <Compile Include="CXDDataModule.cs" />
-    <Compile Include="Migrations\201908200408110_notice.cs" />
-    <Compile Include="Migrations\201908200408110_notice.Designer.cs">
-      <DependentUpon>201908200408110_notice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908201133392_20190820.cs" />
-    <Compile Include="Migrations\201908201133392_20190820.Designer.cs">
-      <DependentUpon>201908201133392_20190820.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908201219420_tide.cs" />
-    <Compile Include="Migrations\201908201219420_tide.Designer.cs">
-      <DependentUpon>201908201219420_tide.cs</DependentUpon>
+    <Compile Include="Migrations\201908211405324_add-tables.cs" />
+    <Compile Include="Migrations\201908211405324_add-tables.Designer.cs">
+      <DependentUpon>201908211405324_add-tables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201908201229303_user.cs" />
     <Compile Include="Migrations\201908201229303_user.Designer.cs">
@@ -269,14 +261,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908200408110_notice.resx">
-      <DependentUpon>201908200408110_notice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908201133392_20190820.resx">
-      <DependentUpon>201908201133392_20190820.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908201219420_tide.resx">
-      <DependentUpon>201908201219420_tide.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908211405324_add-tables.resx">
+      <DependentUpon>201908211405324_add-tables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908201229303_user.resx">
       <DependentUpon>201908201229303_user.cs</DependentUpon>

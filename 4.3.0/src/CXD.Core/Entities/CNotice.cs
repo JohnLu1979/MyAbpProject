@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CXD.Entities
 {
-    [Table("Notice")]
+    [Table("zzd_Notices")]
     public class CNotice : FullAuditedEntity<int> 
     {
 

@@ -217,6 +217,7 @@
     <Compile Include="Entities\CWeather.cs" />
     <Compile Include="Entities\CAccount.cs" />
     <Compile Include="Entities\CNotice.cs" />
+    <Compile Include="Entities\CPicture.cs" />
     <Compile Include="Features\FeatureValueStore.cs" />
     <Compile Include="MultiTenancy\Tenant.cs" />
     <Compile Include="MultiTenancy\TenantManager.cs" />
