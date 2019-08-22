@@ -42,7 +42,10 @@ namespace CXD.WmtRain
             }
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
-                query = query.OrderBy(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                query = query.OrderByDescending(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+            }
+            else {
+                query = query.OrderByDescending(r => r.Id);
             }
 
             var result = query.ToList().MapTo<List<CWeatherDto>>();
