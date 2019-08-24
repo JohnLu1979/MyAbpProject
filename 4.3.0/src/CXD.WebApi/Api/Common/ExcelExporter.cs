@@ -23,9 +23,9 @@ namespace CXD.Api.Common
             try
             {
                 //byte[] data = ExportExcelStream(sheetName, dtoList, header, propertySelectors);
-                FileStream fs = new FileStream(@"e:\test11.xlsx", FileMode.Open);
-                byte[] data1 = new byte[fs.Length];
-                fs.Read(data1, 0, (int)fs.Length);
+                FileStream fs = new FileStream(@"E:\testC.xlsx", FileMode.Open);
+                byte[] data = new byte[fs.Length];
+                fs.Read(data, 0, (int)fs.Length);
                 fs.Close();
                 var Response = HttpContext.Current.Response;
                 //Response.ContentType = "application/vnd.ms-excel";
@@ -37,18 +37,18 @@ namespace CXD.Api.Common
                 // 清除缓存区流中的所有内容输出
                 Response.Clear();
                 // 设置缓冲输出为true,后台编辑的文件写到内存流中了
-                Response.Buffer = true;
+                //Response.Buffer = true;
                 // 设置编码格式 ContentEncoding是管字节流到文本的，而Charset是管在浏览器中显示的
                 //Response.ContentEncoding = System.Text.Encoding.GetEncoding("gb2312");
                 //Response.Charset = "UTF-8";
                 // 将HTTP头添加到输出流，指定默认名
-                Response.AddHeader("Content-Disposition", string.Format(@"attachment;filename={0}", HttpUtility.UrlEncode(fileName, Encoding.UTF8)));
-                Response.ContentEncoding = System.Text.Encoding.UTF8;
+                Response.AddHeader("Content-Disposition", string.Format(@"attachment;filename={0}", fileName));
                 // 设置输出流的HTTP MIME类型为application/vnd.ms-excel
                 Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"; //application/vnd.ms-excel
-                Response.AddHeader("Content-Length", data1.Length.ToString());
+                Response.AddHeader("Content-Length", data.Length.ToString());
                 // 将指定的文件写入HTTP内容输出流
-                Response.OutputStream.Write(data1, 0, data1.Length);
+                Response.OutputStream.Write(data, 0, data.Length);
+                Response.End();
                 //防止文件名含中文出现乱码而进行编码
                 // Response.BinaryWrite(bytes);
                 // 向客户端发送当前所有缓冲的输出
