@@ -11,7 +11,7 @@ namespace CXD.Notice
 {
     public interface INoticeAppService : IApplicationService
     {
-        CDataResults<NoticeListDto> GetAll(NoticeInput input);
+        Task<CDataResults<NoticeListDto>> GetAll(NoticeInput input);
         CDataResult<NoticeListDto> GetNoticeDetail(NoticeInput input);
         CDataResult<NoticeListDto> UpdateNotice(NoticeInput input);
         CDataResult<int> AddNotice(NoticeInput input);

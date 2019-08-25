@@ -11,7 +11,7 @@ namespace CXD.Account
 {
     public interface IAccountAppService : IApplicationService
     {
-        CDataResults<AccountListDto> GetAll(AccountInput input);
+        Task<CDataResults<AccountListDto>> GetAll(AccountInput input);
         CDataResult<AccountListDto> GetDetail(AccountInput input);
         CDataResult<AccountListDto> Update(AccountInput input);
         CDataResult<int> Add(AccountInput input);

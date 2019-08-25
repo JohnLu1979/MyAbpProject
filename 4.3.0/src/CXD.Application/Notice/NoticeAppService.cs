@@ -25,7 +25,7 @@ namespace CXD.Notice
             this._noticeRepository = noticeRepository;
         }
 
-        public CDataResults<NoticeListDto> GetAll(NoticeInput input)
+        public Task<CDataResults<NoticeListDto>> GetAll(NoticeInput input)
         {
             var query = this._noticeRepository.GetAll();
             if (input.Title != null)
@@ -39,13 +39,13 @@ namespace CXD.Notice
             }
             var result = query.ToList().MapTo<List<NoticeListDto>>();
 
-            return new CDataResults<NoticeListDto>()
+            return Task.FromResult(new CDataResults<NoticeListDto>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result,
                 Total = total
-            };
+            });
         }
 
         public CDataResult<NoticeListDto> GetNoticeDetail(NoticeInput input)

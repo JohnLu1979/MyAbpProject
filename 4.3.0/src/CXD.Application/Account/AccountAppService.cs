@@ -68,7 +68,7 @@ namespace CXD.Account
             };
         }
 
-        public CDataResults<AccountListDto> GetAll(AccountInput input)
+        public Task<CDataResults<AccountListDto>> GetAll(AccountInput input)
         {
             var query = this._accountRepository.GetAll();
             if (!string.IsNullOrWhiteSpace(input.searchContent))
@@ -87,13 +87,13 @@ namespace CXD.Account
             }
             var result = query.ToList().MapTo<List<AccountListDto>>();
 
-            return new CDataResults<AccountListDto>()
+            return Task.FromResult(new CDataResults<AccountListDto>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result,
                 Total = total
-            };
+            });
         }
 
         public CDataResult<AccountListDto> GetDetail(AccountInput input)

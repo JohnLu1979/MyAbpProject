@@ -245,6 +245,10 @@
     <Compile Include="Notice\Dto\NoticeListDto.cs" />
     <Compile Include="Notice\INoticeAppService.cs" />
     <Compile Include="Notice\NoticeAppService.cs" />
+    <Compile Include="Picture\DTO\PictrueListDto.cs" />
+    <Compile Include="Picture\DTO\PictureInput.cs" />
+    <Compile Include="Picture\IPictureAppService.cs" />
+    <Compile Include="Picture\PictrueAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\Dto\CreateRoleDto.cs" />
     <Compile Include="Roles\Dto\PermissionDto.cs" />
