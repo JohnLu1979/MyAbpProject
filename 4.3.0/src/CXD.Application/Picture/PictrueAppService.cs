@@ -1,34 +1,31 @@
-﻿using System;
+﻿using CXD.Base;
+using CXD.Base.Dto;
+using CXD.Picture.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using CXD.Entities;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using CXD.Picture.DTO;
-using CXD.Base;
-using CXD.Base.Dto;
-using CXD.Entities;
 
 namespace CXD.Picture
 {
     public class PictrueAppService : CBaseAppService, IPictureAppService
     {
+ 
 
-        public readonly IRepository<CPicture, int> _pictureRepository;
-        public PictrueAppService(
-            IRepository<CPicture, int> pictureRepository
-            ) : base()
+        private readonly IRepository<CPicture, int> _pictureRepository;
+
+        public PictrueAppService(IRepository<CPicture, int> pictureRepository) : base()
         {
             this._pictureRepository = pictureRepository;
+
         }
-
-
 
         public Task<CDataResults<PictrueListDto>> GetPictrues(PictureInput input)
         {
-            //  throw new NotImplementedException();
             var query = this._pictureRepository.GetAll();
             if (!string.IsNullOrWhiteSpace(input.Title))
             {
@@ -88,17 +85,17 @@ namespace CXD.Picture
                 Data = 1
             };
         }
-        public CDataResult<string> UploadImg()
-        {
+        //public CDataResult<string> UploadImg(PictureInput input)
+        //{
 
 
-            return new CDataResult<string>()
-            {
-                IsSuccess = true,
-                ErrorMessage = null,
-                Data = ""
-            };
-        }
+        //    return new CDataResult<string>()
+        //    {
+        //        IsSuccess = true,
+        //        ErrorMessage = null,
+        //        Data = ""
+        //    };
+        //}
      }
 }
 

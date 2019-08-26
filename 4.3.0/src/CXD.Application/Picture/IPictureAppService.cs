@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services;
 using CXD.Picture.DTO;
 using CXD.Base.Dto;
-using CXD.Entities;
+ 
 
 namespace CXD.Picture
 {
@@ -18,5 +18,7 @@ namespace CXD.Picture
         CDataResult<int> Add(PictureInput input);
 
         CDataResult<int> Delete(PictureInput input);
+
+        //CDataResult<string> UploadImg(PictureInput input);
     }
 }

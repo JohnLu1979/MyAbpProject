@@ -11,5 +11,7 @@ namespace CXD.Picture.DTO
     {
         public virtual string Title { get; set; }
         public virtual string ImgUrl { get; set; }
+
+       public string File_Base64 { get; set; }
     }
 }
