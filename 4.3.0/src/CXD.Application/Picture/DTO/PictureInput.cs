@@ -15,3 +15,4 @@ namespace CXD.Picture.DTO
        public string File_Base64 { get; set; }
     }
 }
+ 

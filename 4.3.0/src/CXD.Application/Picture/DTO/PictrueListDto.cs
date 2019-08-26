@@ -10,8 +10,8 @@ namespace CXD.Picture.DTO
 {
     [AutoMapFrom(typeof(CXD.Entities.CPicture))]
     public class PictrueListDto: FullAuditedEntity<int>
-    {
+    { 
         public virtual string Title { get; set; }
         public virtual string ImgUrl { get; set; }
-    }
+    } 
 }
