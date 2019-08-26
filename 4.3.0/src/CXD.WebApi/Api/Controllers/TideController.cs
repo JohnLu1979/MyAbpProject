@@ -2,22 +2,28 @@
 using Abp.Web.Models;
 using Abp.WebApi.Controllers;
 using CXD.Api.Common;
+using CXD.Base.Dto;
 using CXD.Entities;
+using CXD.Tide;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
 
 namespace CXD.Api.Controllers
 {
     public class TideController: AbpApiController
     {
         private readonly IRepository<CTide, int> _tideRepository;
+        //private readonly ITideAppService _tideAppService;
 
-        public TideController(IRepository<CTide, int> tideRepository)
+        public TideController(IRepository<CTide, int> tideRepository)//,ITideAppService tideAppService)
         {
             this._tideRepository = tideRepository;
+            //this._tideAppService = tideAppService;
         }
         /// <summary>
         /// 导出列表到Excel
@@ -49,30 +55,32 @@ namespace CXD.Api.Controllers
             return ExcelExporter<TideList>.GetFileResponse(fileName, sheetName, list, header, propertySelectors);
         }
 
-        //public async Task<IActionResult> FileSave(List<IFormFile> files)
+        //[HttpPost]
+        //public CDataResult<bool> PostFiles()
         //{
-        //    var files = Request.Form.Files;
-        //    long size = files.Sum(f => f.Length);
-        //    string webRootPath = _hostingEnvironment.WebRootPath;
-        //    string contentRootPath = _hostingEnvironment.ContentRootPath;
-        //    foreach (var formFile in files)
+        //    CDataResult<bool> result = new CDataResult<bool>
         //    {
-        //        if (formFile.Length > 0)
+        //        IsSuccess = false,
+        //        ErrorMessage = null,
+        //        Data = false
+        //    };
+        //    HttpFileCollection filelist = HttpContext.Current.Request.Files;
+        //    if (filelist != null && filelist.Count > 0)
+        //    {
+        //        for (int i = 0; i < filelist.Count; i++)
         //        {
-
-        //            string fileExt = GetFileExt(formFile.FileName); //文件扩展名，不含“.”
-        //            long fileSize = formFile.Length; //获得文件大小，以字节为单位
-        //            string newFileName = System.Guid.NewGuid().ToString() + "." + fileExt; //随机生成新的文件名
-        //            var filePath = webRootPath + "/upload/" + newFileName;
-        //            using (var stream = new FileStream(filePath, FileMode.Create))
+        //            HttpPostedFile file = filelist[i];
+        //            byte[] buffer = new byte[file.InputStream.Length];
+        //            file.InputStream.Read(buffer,0,buffer.Length);
+        //            string fileContent = System.Text.Encoding.Default.GetString(buffer);
+        //            result = _tideAppService.ImportTides(new Tide.Dto.CTideInput()
         //            {
-
-        //                await formFile.CopyToAsync(stream);
-        //            }
+        //                File_Base64 = fileContent
+        //            });
         //        }
         //    }
 
-        //    return Ok(new { count = files.Count, size });
+        //    return result;
         //}
     }
     public class TideList

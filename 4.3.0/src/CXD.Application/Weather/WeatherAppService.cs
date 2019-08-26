@@ -40,9 +40,13 @@ namespace CXD.WmtRain
             if (input.Type.HasValue) {
                 query = query.Where(r => r.Type == input.Type);
             }
+            var total = query.Count();
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
-                query = query.OrderBy(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                query = query.OrderByDescending(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+            }
+            else {
+                query = query.OrderByDescending(r => r.Id);
             }
 
             var result = query.ToList().MapTo<List<CWeatherDto>>();
@@ -52,7 +56,7 @@ namespace CXD.WmtRain
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = result,
-                Total = query.Count()
+                Total = total
             });
         }
 
