@@ -224,6 +224,10 @@
     <Compile Include="Base\Dto\CBaseInput.cs" />
     <Compile Include="Base\Dto\CDataResults.cs" />
     <Compile Include="Common\ExcelExporter.cs" />
+    <Compile Include="CPicture\CpictureAppService.cs" />
+    <Compile Include="CPicture\Dto\CPictureInput.cs" />
+    <Compile Include="CPicture\Dto\CPictureListDto.cs" />
+    <Compile Include="CPicture\ICpictureAppService.cs" />
     <Compile Include="CXDApplicationModule.cs" />
     <Compile Include="CXDAppServiceBase.cs" />
     <Compile Include="Authorization\Accounts\AccountAppService.cs" />
@@ -251,10 +255,6 @@
     <Compile Include="Notice\Dto\NoticeListDto.cs" />
     <Compile Include="Notice\INoticeAppService.cs" />
     <Compile Include="Notice\NoticeAppService.cs" />
-    <Compile Include="Picture\Dto\PictrueListDto.cs" />
-    <Compile Include="Picture\Dto\PictureInput.cs" />
-    <Compile Include="Picture\IPictureAppService.cs" />
-    <Compile Include="Picture\PictrueAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\Dto\CreateRoleDto.cs" />
     <Compile Include="Roles\Dto\PermissionDto.cs" />

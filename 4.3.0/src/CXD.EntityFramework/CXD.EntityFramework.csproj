@@ -231,9 +231,9 @@
     <Compile Include="EntityFramework\CXDDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CXDRepositoryBase.cs" />
     <Compile Include="CXDDataModule.cs" />
-    <Compile Include="Migrations\201908211405324_add-tables.cs" />
-    <Compile Include="Migrations\201908211405324_add-tables.Designer.cs">
-      <DependentUpon>201908211405324_add-tables.cs</DependentUpon>
+    <Compile Include="Migrations\201908260538142_table.cs" />
+    <Compile Include="Migrations\201908260538142_table.Designer.cs">
+      <DependentUpon>201908260538142_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -257,8 +257,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908211405324_add-tables.resx">
-      <DependentUpon>201908211405324_add-tables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908260538142_table.resx">
+      <DependentUpon>201908260538142_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

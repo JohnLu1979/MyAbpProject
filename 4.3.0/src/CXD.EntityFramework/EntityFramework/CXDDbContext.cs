@@ -20,7 +20,7 @@ namespace CXD.EntityFramework
         public virtual IDbSet<CTide> CTideObjects { get; set; }
         public virtual IDbSet<CUser> CUserObjects { get; set; }
 
-        public virtual IDbSet<CPicture> Pictures { get; set; }
+        public virtual IDbSet<CPicture> CPictures { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

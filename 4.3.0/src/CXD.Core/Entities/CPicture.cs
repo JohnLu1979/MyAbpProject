@@ -14,6 +14,8 @@ namespace CXD.Entities
     {
         public virtual string Title { get; set; }
         public virtual string ImgUrl { get; set; }
-    
+        public virtual string IsActivated { get; set; }
+
+
     }
 }
