@@ -99,7 +99,6 @@ namespace CXD.Picture
                 Data = ""
             };
         }
-    }
-
+     }
 }
 

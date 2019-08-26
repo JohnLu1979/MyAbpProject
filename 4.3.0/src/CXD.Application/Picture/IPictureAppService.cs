@@ -14,7 +14,7 @@ namespace CXD.Picture
     public interface IPictureAppService : IApplicationService
     {
 
-        Task<CDataResults<CPicture>> GetPictrues(PictureInput input);
+        Task<CDataResults<PictrueListDto>> GetPictrues(PictureInput input);
         CDataResult<int> Add(PictureInput input);
 
         CDataResult<int> Delete(PictureInput input);
