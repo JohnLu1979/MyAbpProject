@@ -9,13 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using System.IO;
+using System.Drawing;
+using MimeKit.Encodings;
 
 namespace CXD.CPictureService
 {
-   public class CpictureAppService : CBaseAppService, ICpictureAppService
+    public class CpictureAppService : CBaseAppService, ICpictureAppService
     {
         private readonly IRepository<CXD.Entities.CPicture, int> _pictureRepository;
-        public CpictureAppService(IRepository<CXD.Entities.CPicture, int> pictureRepository):base()
+        public CpictureAppService(IRepository<CXD.Entities.CPicture, int> pictureRepository) : base()
         {
             this._pictureRepository = pictureRepository;
         }
@@ -71,6 +75,40 @@ namespace CXD.CPictureService
             };
         }
 
+        public CDataResult<int> Update(CPictureInput input)
+        {
+            var result = new CDataResult<int>()
+            {
+                IsSuccess = false,
+                ErrorMessage = null,
+                Data = 0
+            };
+            var picture = this._pictureRepository.Get(input.Id);
+            if (picture == null)
+            {
+                result.IsSuccess = false;
+            }
+            else
+            {
+                picture.Title = input.Title;
+                picture.ImgUrl = input.ImgUrl;
+                picture.Id = input.Id;
+            }
+
+            var updatePicture = this._pictureRepository.Update(picture);
+
+            if (updatePicture == null)
+            {
+                result.IsSuccess = false;
+            }
+            else
+            {
+                result.IsSuccess = true;
+                result.Data = 1;
+            }
+            return result;
+        }
+
         public CDataResult<int> Delete(CPictureInput input)
         {
             this._pictureRepository.Delete(input.Id);
@@ -82,15 +120,67 @@ namespace CXD.CPictureService
             };
         }
 
+
         public CDataResult<string> UploadImg(CPictureInput input)
         {
+            //string url = "data:image/jpeg;base64," + input.File_Base64;
+            if (!String.IsNullOrEmpty(input.File_Base64))
+            {
+                var fileSize = input.File_Base64.Count();
+                //string extendName = "jpeg";
+                var newFileName = GenerateNewFileName(input.File_Base64.Length % 1000 * 1000);
+                var url = GetFileURL(System.Configuration.ConfigurationManager.AppSettings["UploadFilesPath"], newFileName);
+                newFileName = GetFilePath(System.Configuration.ConfigurationManager.AppSettings["UploadFilesPath"], newFileName);
 
+                if (!Base64StringToFile(input.File_Base64, newFileName))
+                {
+                    return new CDataResult<string>()
+                    {
+                        IsSuccess = true,
+                        ErrorMessage = null,
+                        Data = ""
+                    };
+                }
+                else
+                {
+                    return new CDataResult<string>()
+                    {
+                        IsSuccess = true,
+                        ErrorMessage = null,
+                        Data = url
+                    };
+                }
+            }
             return new CDataResult<string>()
             {
                 IsSuccess = true,
                 ErrorMessage = null,
                 Data = ""
             };
+        }
+
+
+       public CDataResult<CPictureListDto> GetPicDetail(CPictureInput input)
+        {
+            var item = this._pictureRepository.Get(input.Id);
+            if (item == null)
+            {
+                return new CDataResult<CPictureListDto>()
+                {
+                    IsSuccess = false,
+                    ErrorMessage = null,
+                    Data = null
+                };
+            }
+            else
+            {
+                return new CDataResult<CPictureListDto>()
+                {
+                    IsSuccess = true,
+                    ErrorMessage = null,
+                    Data = item.MapTo<CPictureListDto>()
+                };
+            }
         }
     }
 }

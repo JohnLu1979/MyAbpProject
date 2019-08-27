@@ -14,8 +14,12 @@ namespace CXD.CPictureService
         Task<CDataResults<CPictureListDto>> GetPictrues(CPictureInput input);
         CDataResult<int> Add(CPictureInput input);
 
+        CDataResult<int> Update(CPictureInput input);
+
         CDataResult<int> Delete(CPictureInput input);
 
         CDataResult<string> UploadImg(CPictureInput input);
+
+        CDataResult<CPictureListDto> GetPicDetail(CPictureInput input);
     }
 }
