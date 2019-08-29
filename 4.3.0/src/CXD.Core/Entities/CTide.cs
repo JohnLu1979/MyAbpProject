@@ -10,6 +10,7 @@ namespace CXD.Entities
 {
     public class CTide:Entity<int>
     {
+        public virtual int CompanyId { get; set; }
         public virtual DateTime PublicDate { get; set; }
         public virtual string MoonDate { get; set; }
         public virtual DateTime Flood1 { get; set; }

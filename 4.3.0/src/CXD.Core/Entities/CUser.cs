@@ -11,9 +11,11 @@ namespace CXD.Entities
     [Table("zzd_user")]
     public class CUser:Entity<int>
     {
+        public virtual int CompanyId { get; set; }
         public virtual string UserName { get; set; }
         public virtual string Password { get; set; }
 
+        public virtual string UserType { get; set; }
 
     }
 }

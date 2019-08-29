@@ -282,10 +282,18 @@
     <Compile Include="Tide\Dto\CTideListDto.cs" />
     <Compile Include="Tide\ITideAppService.cs" />
     <Compile Include="Tide\TideAppService.cs" />
+    <Compile Include="vaisala_wxt536_view\Dto\VaisalaInput.cs" />
+    <Compile Include="vaisala_wxt536_view\Dto\VaisalaListDto.cs" />
+    <Compile Include="vaisala_wxt536_view\IVaisalaAppService.cs" />
+    <Compile Include="vaisala_wxt536_view\VaisalaAppService.cs" />
     <Compile Include="Weather\Dto\CWeatherInput.cs" />
     <Compile Include="Weather\Dto\CWeatherListDto.cs" />
     <Compile Include="Weather\IWeatherAppService.cs" />
     <Compile Include="Weather\WeatherAppService.cs" />
+    <Compile Include="xylem_5400_view\Dto\XylemInput.cs" />
+    <Compile Include="xylem_5400_view\Dto\XylemListDto.cs" />
+    <Compile Include="xylem_5400_view\IXylemAppService.cs" />
+    <Compile Include="xylem_5400_view\XylemAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

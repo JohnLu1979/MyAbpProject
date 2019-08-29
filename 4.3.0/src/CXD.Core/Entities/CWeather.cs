@@ -17,8 +17,11 @@ namespace CXD.Entities
     }
     public class CWeather:FullAuditedEntity<int>
     {
+        public virtual int CompanyId { get; set; }
         public virtual string Title { get; set; }
         public virtual WeatherType Type { get; set; }
-        public virtual string Content { get; set; }        
+        public virtual string Content { get; set; }     
+        
+
     }
 }

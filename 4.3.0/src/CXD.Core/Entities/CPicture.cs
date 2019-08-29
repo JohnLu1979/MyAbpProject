@@ -12,6 +12,7 @@ namespace CXD.Entities
    [Table("zzd_Pictures")]
    public class CPicture : FullAuditedEntity<int>
     {
+        public virtual int CompanyId { get; set; }
         public virtual string Title { get; set; }
         public virtual string ImgUrl { get; set; }
         public virtual string IsActivated { get; set; }

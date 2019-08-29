@@ -13,6 +13,8 @@ namespace CXD.Entities
     [Table("zzd_Accounts")]
     public class CAccount : FullAuditedEntity<int>
     {
+
+        public virtual int CompanyId { get; set; }
         [MaxLength(50)]
         public virtual string AccountName { get; set; }
         [MaxLength(50)]
