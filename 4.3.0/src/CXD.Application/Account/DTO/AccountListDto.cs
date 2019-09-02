@@ -12,6 +12,10 @@ namespace CXD.Account.DTO
 
     public class AccountListDto : FullAuditedEntity<int>
     {
+<<<<<<< HEAD
+=======
+        public virtual string AccountName { get; set; }
+>>>>>>> 381821ab9b35ae7720d45f0fdb93b7588040abf4
         public virtual int CompanyId { get; set; }
         public virtual string UserName { get; set; }
         public virtual string Account { get; set; }

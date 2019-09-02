@@ -38,7 +38,11 @@ namespace CXD.Account
                 UserName = input.UserName,
                 Password = "111111",
                 CompanyId = input.CompanyId,
+<<<<<<< HEAD
                 Account = input.Account,
+=======
+                AccountName = input.AccountName,
+>>>>>>> 381821ab9b35ae7720d45f0fdb93b7588040abf4
                 IMEICode = input.IMEICode,
                 IsActivated = input.IsActivated
             };
