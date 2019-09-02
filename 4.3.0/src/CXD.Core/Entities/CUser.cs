@@ -14,7 +14,6 @@ namespace CXD.Entities
         public virtual int CompanyId { get; set; }
         public virtual string UserName { get; set; }
         public virtual string Password { get; set; }
-
         public virtual string UserType { get; set; }
 
     }

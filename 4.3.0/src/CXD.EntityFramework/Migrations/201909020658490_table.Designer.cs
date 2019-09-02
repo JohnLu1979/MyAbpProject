@@ -13,7 +13,7 @@ namespace CXD.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201908290730161_table"; }
+            get { return "201909020658490_table"; }
         }
         
         string IMigrationMetadata.Source

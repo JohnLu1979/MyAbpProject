@@ -231,13 +231,9 @@
     <Compile Include="EntityFramework\CXDDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CXDRepositoryBase.cs" />
     <Compile Include="CXDDataModule.cs" />
-    <Compile Include="Migrations\201908290730161_table.cs" />
-    <Compile Include="Migrations\201908290730161_table.Designer.cs">
-      <DependentUpon>201908290730161_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908290743505_modify-user.cs" />
-    <Compile Include="Migrations\201908290743505_modify-user.Designer.cs">
-      <DependentUpon>201908290743505_modify-user.cs</DependentUpon>
+    <Compile Include="Migrations\201909020658490_table.cs" />
+    <Compile Include="Migrations\201909020658490_table.Designer.cs">
+      <DependentUpon>201909020658490_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -261,11 +257,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908290730161_table.resx">
-      <DependentUpon>201908290730161_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908290743505_modify-user.resx">
-      <DependentUpon>201908290743505_modify-user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909020658490_table.resx">
+      <DependentUpon>201909020658490_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

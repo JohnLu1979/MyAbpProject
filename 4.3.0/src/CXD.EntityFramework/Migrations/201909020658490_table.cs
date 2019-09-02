@@ -4,7 +4,7 @@ namespace CXD.Migrations
     using System.Collections.Generic;
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
-    
+
     public partial class table : DbMigration
     {
         public override void Up()
@@ -12,186 +12,187 @@ namespace CXD.Migrations
             CreateTable(
                 "dbo.zzd_Accounts",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CompanyId = c.Int(nullable: false),
-                        AccountName = c.String(maxLength: 50, storeType: "nvarchar"),
-                        UserName = c.String(maxLength: 50, storeType: "nvarchar"),
-                        Password = c.String(maxLength: 50, storeType: "nvarchar"),
-                        IMEICode = c.String(unicode: false),
-                        IsActivated = c.String(unicode: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    CompanyId = c.Int(nullable: false),
+                    AccountName = c.String(maxLength: 50, storeType: "nvarchar"),
+                    UserName = c.String(maxLength: 50, storeType: "nvarchar"),
+                    Password = c.String(maxLength: 50, storeType: "nvarchar"),
+                    IMEICode = c.String(unicode: false),
+                    IsActivated = c.String(unicode: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_CAccount_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
+
             CreateTable(
                 "dbo.AbpAuditLogs",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        UserId = c.Long(),
-                        ServiceName = c.String(maxLength: 256, storeType: "nvarchar"),
-                        MethodName = c.String(maxLength: 256, storeType: "nvarchar"),
-                        Parameters = c.String(maxLength: 1024, storeType: "nvarchar"),
-                        ReturnValue = c.String(unicode: false),
-                        ExecutionTime = c.DateTime(nullable: false, precision: 0),
-                        ExecutionDuration = c.Int(nullable: false),
-                        ClientIpAddress = c.String(maxLength: 64, storeType: "nvarchar"),
-                        ClientName = c.String(maxLength: 128, storeType: "nvarchar"),
-                        BrowserInfo = c.String(maxLength: 512, storeType: "nvarchar"),
-                        Exception = c.String(maxLength: 2000, storeType: "nvarchar"),
-                        ImpersonatorUserId = c.Long(),
-                        ImpersonatorTenantId = c.Int(),
-                        CustomData = c.String(maxLength: 2000, storeType: "nvarchar"),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    UserId = c.Long(),
+                    ServiceName = c.String(maxLength: 256, storeType: "nvarchar"),
+                    MethodName = c.String(maxLength: 256, storeType: "nvarchar"),
+                    Parameters = c.String(maxLength: 1024, storeType: "nvarchar"),
+                    ReturnValue = c.String(unicode: false),
+                    ExecutionTime = c.DateTime(nullable: false, precision: 0),
+                    ExecutionDuration = c.Int(nullable: false),
+                    ClientIpAddress = c.String(maxLength: 64, storeType: "nvarchar"),
+                    ClientName = c.String(maxLength: 128, storeType: "nvarchar"),
+                    BrowserInfo = c.String(maxLength: 512, storeType: "nvarchar"),
+                    Exception = c.String(maxLength: 2000, storeType: "nvarchar"),
+                    ImpersonatorUserId = c.Long(),
+                    ImpersonatorTenantId = c.Int(),
+                    CustomData = c.String(maxLength: 2000, storeType: "nvarchar"),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_AuditLog_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.TenantId);
-            
+
             CreateTable(
                 "dbo.AbpBackgroundJobs",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        JobType = c.String(nullable: false, maxLength: 512, storeType: "nvarchar"),
-                        JobArgs = c.String(nullable: false, unicode: false),
-                        TryCount = c.Short(nullable: false),
-                        NextTryTime = c.DateTime(nullable: false, precision: 0),
-                        LastTryTime = c.DateTime(precision: 0),
-                        IsAbandoned = c.Boolean(nullable: false),
-                        Priority = c.Byte(nullable: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    })
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    JobType = c.String(nullable: false, maxLength: 512, storeType: "nvarchar"),
+                    JobArgs = c.String(nullable: false, unicode: false),
+                    TryCount = c.Short(nullable: false),
+                    NextTryTime = c.DateTime(nullable: false, precision: 0),
+                    LastTryTime = c.DateTime(precision: 0),
+                    IsAbandoned = c.Boolean(nullable: false),
+                    Priority = c.Byte(nullable: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                })
                 .PrimaryKey(t => t.Id)
                 .Index(t => new { t.IsAbandoned, t.NextTryTime });
-            
+
             CreateTable(
                 "dbo.Company",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CompanyName = c.String(unicode: false),
-                        CompanyAddress = c.String(unicode: false),
-                        Contactor = c.String(unicode: false),
-                        Mobile = c.String(unicode: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    CompanyName = c.String(unicode: false),
+                    CompanyAddress = c.String(unicode: false),
+                    Contactor = c.String(unicode: false),
+                    Mobile = c.String(unicode: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_CCompany_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
+
             CreateTable(
                 "dbo.zzd_Pictures",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CompanyId = c.Int(nullable: false),
-                        Title = c.String(unicode: false),
-                        ImgUrl = c.String(unicode: false),
-                        IsActivated = c.String(unicode: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    CompanyId = c.Int(nullable: false),
+                    Title = c.String(unicode: false),
+                    ImgUrl = c.String(unicode: false),
+                    IsActivated = c.String(unicode: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_CPicture_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
+
             CreateTable(
                 "dbo.CTides",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CompanyId = c.Int(nullable: false),
-                        PublicDate = c.DateTime(nullable: false, precision: 0),
-                        MoonDate = c.String(unicode: false),
-                        Flood1 = c.DateTime(nullable: false, precision: 0),
-                        Ebb1 = c.DateTime(nullable: false, precision: 0),
-                        Flood2 = c.DateTime(nullable: false, precision: 0),
-                        Ebb2 = c.DateTime(nullable: false, precision: 0),
-                    })
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    CompanyId = c.Int(nullable: false),
+                    PublicDate = c.DateTime(nullable: false, precision: 0),
+                    MoonDate = c.String(unicode: false),
+                    Flood1 = c.DateTime(nullable: false, precision: 0),
+                    Ebb1 = c.DateTime(nullable: false, precision: 0),
+                    Flood2 = c.DateTime(nullable: false, precision: 0),
+                    Ebb2 = c.DateTime(nullable: false, precision: 0),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.zzd_user",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        UserName = c.String(unicode: false),
-                        Password = c.String(unicode: false),
-                        UserType = c.String(unicode: false),
-                    })
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    CompanyId = c.Int(nullable: false),
+                    UserName = c.String(unicode: false),
+                    Password = c.String(unicode: false),
+                    UserType = c.String(unicode: false),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.CWeathers",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CompanyId = c.Int(nullable: false),
-                        Title = c.String(unicode: false),
-                        Type = c.Int(nullable: false),
-                        Content = c.String(unicode: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    CompanyId = c.Int(nullable: false),
+                    Title = c.String(unicode: false),
+                    Type = c.Int(nullable: false),
+                    Content = c.String(unicode: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_CWeather_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
+
             CreateTable(
                 "dbo.AbpFeatures",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        Name = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        Value = c.String(nullable: false, maxLength: 2000, storeType: "nvarchar"),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                        EditionId = c.Int(),
-                        Discriminator = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    Name = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    Value = c.String(nullable: false, maxLength: 2000, storeType: "nvarchar"),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                    EditionId = c.Int(),
+                    Discriminator = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_EditionFeatureSetting_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
@@ -200,60 +201,60 @@ namespace CXD.Migrations
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.EditionId);
-            
+
             CreateTable(
                 "dbo.AbpEditions",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 32, storeType: "nvarchar"),
-                        DisplayName = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    Name = c.String(nullable: false, maxLength: 32, storeType: "nvarchar"),
+                    DisplayName = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_Edition_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
+
             CreateTable(
                 "dbo.AbpEntityChanges",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        ChangeTime = c.DateTime(nullable: false, precision: 0),
-                        ChangeType = c.Byte(nullable: false),
-                        EntityChangeSetId = c.Long(nullable: false),
-                        EntityId = c.String(maxLength: 48, storeType: "nvarchar"),
-                        EntityTypeFullName = c.String(maxLength: 192, storeType: "nvarchar"),
-                        TenantId = c.Int(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    ChangeTime = c.DateTime(nullable: false, precision: 0),
+                    ChangeType = c.Byte(nullable: false),
+                    EntityChangeSetId = c.Long(nullable: false),
+                    EntityId = c.String(maxLength: 48, storeType: "nvarchar"),
+                    EntityTypeFullName = c.String(maxLength: 192, storeType: "nvarchar"),
+                    TenantId = c.Int(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_EntityChange_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.TenantId);
-            
+
             CreateTable(
                 "dbo.AbpEntityPropertyChanges",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        EntityChangeId = c.Long(nullable: false),
-                        NewValue = c.String(maxLength: 512, storeType: "nvarchar"),
-                        OriginalValue = c.String(maxLength: 512, storeType: "nvarchar"),
-                        PropertyName = c.String(maxLength: 96, storeType: "nvarchar"),
-                        PropertyTypeFullName = c.String(maxLength: 192, storeType: "nvarchar"),
-                        TenantId = c.Int(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    EntityChangeId = c.Long(nullable: false),
+                    NewValue = c.String(maxLength: 512, storeType: "nvarchar"),
+                    OriginalValue = c.String(maxLength: 512, storeType: "nvarchar"),
+                    PropertyName = c.String(maxLength: 96, storeType: "nvarchar"),
+                    PropertyTypeFullName = c.String(maxLength: 192, storeType: "nvarchar"),
+                    TenantId = c.Int(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_EntityPropertyChange_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
@@ -282,27 +283,26 @@ namespace CXD.Migrations
                     { "DynamicFilter_EntityChangeSet_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.TenantId);
-               
-            
+                .Index(t => t.UserId, name: "IX_TenantId_UserId");
+
             CreateTable(
                 "dbo.AbpLanguages",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        Name = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
-                        DisplayName = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
-                        Icon = c.String(maxLength: 128, storeType: "nvarchar"),
-                        IsDisabled = c.Boolean(nullable: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    Name = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
+                    DisplayName = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
+                    Icon = c.String(maxLength: 128, storeType: "nvarchar"),
+                    IsDisabled = c.Boolean(nullable: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_ApplicationLanguage_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
@@ -310,72 +310,72 @@ namespace CXD.Migrations
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.TenantId);
-            
+
             CreateTable(
                 "dbo.AbpLanguageTexts",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        LanguageName = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
-                        Source = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        Key = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
-                        Value = c.String(nullable: false, unicode: false),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    LanguageName = c.String(nullable: false, maxLength: 10, storeType: "nvarchar"),
+                    Source = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    Key = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
+                    Value = c.String(nullable: false, unicode: false),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_ApplicationLanguageText_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.TenantId);
-            
+
             CreateTable(
                 "dbo.zzd_Notices",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        CompanyId = c.Int(nullable: false),
-                        Title = c.String(unicode: false),
-                        NewsAuthor = c.String(unicode: false),
-                        DisplayIndex = c.Int(),
-                        NewsContent = c.String(unicode: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    CompanyId = c.Int(nullable: false),
+                    Title = c.String(unicode: false),
+                    NewsAuthor = c.String(unicode: false),
+                    DisplayIndex = c.Int(),
+                    NewsContent = c.String(unicode: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_CNotice_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
+
             CreateTable(
                 "dbo.AbpNotifications",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        NotificationName = c.String(nullable: false, maxLength: 96, storeType: "nvarchar"),
-                        Data = c.String(unicode: false),
-                        DataTypeName = c.String(maxLength: 512, storeType: "nvarchar"),
-                        EntityTypeName = c.String(maxLength: 250, storeType: "nvarchar"),
-                        EntityTypeAssemblyQualifiedName = c.String(maxLength: 512, storeType: "nvarchar"),
-                        EntityId = c.String(maxLength: 96, storeType: "nvarchar"),
-                        Severity = c.Byte(nullable: false),
-                        UserIds = c.String(unicode: false),
-                        ExcludedUserIds = c.String(unicode: false),
-                        TenantIds = c.String(unicode: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    })
+                {
+                    Id = c.Guid(nullable: false),
+                    NotificationName = c.String(nullable: false, maxLength: 96, storeType: "nvarchar"),
+                    Data = c.String(unicode: false),
+                    DataTypeName = c.String(maxLength: 512, storeType: "nvarchar"),
+                    EntityTypeName = c.String(maxLength: 250, storeType: "nvarchar"),
+                    EntityTypeAssemblyQualifiedName = c.String(maxLength: 512, storeType: "nvarchar"),
+                    EntityId = c.String(maxLength: 96, storeType: "nvarchar"),
+                    Severity = c.Byte(nullable: false),
+                    UserIds = c.String(unicode: false),
+                    ExcludedUserIds = c.String(unicode: false),
+                    TenantIds = c.String(unicode: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                })
                 .PrimaryKey(t => t.Id);
 
             CreateTable(
@@ -397,21 +397,21 @@ namespace CXD.Migrations
                     { "DynamicFilter_NotificationSubscriptionInfo_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.TenantId);
-         
-            
+                .Index(t => t.TenantId)
+                .Index(t => new { t.NotificationName, t.EntityTypeName, t.EntityId, t.UserId });
+
             CreateTable(
                 "dbo.AbpOrganizationUnitRoles",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        RoleId = c.Int(nullable: false),
-                        OrganizationUnitId = c.Long(nullable: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    RoleId = c.Int(nullable: false),
+                    OrganizationUnitId = c.Long(nullable: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_OrganizationUnitRole_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
@@ -442,22 +442,22 @@ namespace CXD.Migrations
                     { "DynamicFilter_OrganizationUnit_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
-               .Index(t => t.TenantId);
-            
+                .Index(t => t.TenantId);
+
             CreateTable(
                 "dbo.AbpPermissions",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        Name = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        IsGranted = c.Boolean(nullable: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                        RoleId = c.Int(),
-                        UserId = c.Long(),
-                        Discriminator = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    Name = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    IsGranted = c.Boolean(nullable: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                    RoleId = c.Int(),
+                    UserId = c.Long(),
+                    Discriminator = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_PermissionSetting_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
@@ -493,102 +493,101 @@ namespace CXD.Migrations
                     { "DynamicFilter_Role_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
-               .Index(t => t.TenantId);
-               
-            
+                .Index(t => t.CreatorUserId);
+
             CreateTable(
                 "dbo.AbpUsers",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        NormalizedUserName = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
-                        NormalizedEmailAddress = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
-                        AuthenticationSource = c.String(maxLength: 64, storeType: "nvarchar"),
-                        UserName = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
-                        TenantId = c.Int(),
-                        EmailAddress = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
-                        Name = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
-                        Surname = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
-                        Password = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        EmailConfirmationCode = c.String(maxLength: 328, storeType: "nvarchar"),
-                        PasswordResetCode = c.String(maxLength: 328, storeType: "nvarchar"),
-                        LockoutEndDateUtc = c.DateTime(precision: 0),
-                        AccessFailedCount = c.Int(nullable: false),
-                        IsLockoutEnabled = c.Boolean(nullable: false),
-                        PhoneNumber = c.String(maxLength: 32, storeType: "nvarchar"),
-                        IsPhoneNumberConfirmed = c.Boolean(nullable: false),
-                        SecurityStamp = c.String(maxLength: 128, storeType: "nvarchar"),
-                        IsTwoFactorEnabled = c.Boolean(nullable: false),
-                        IsEmailConfirmed = c.Boolean(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    NormalizedUserName = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
+                    NormalizedEmailAddress = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
+                    AuthenticationSource = c.String(maxLength: 64, storeType: "nvarchar"),
+                    UserName = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
+                    TenantId = c.Int(),
+                    EmailAddress = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
+                    Name = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
+                    Surname = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
+                    Password = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    EmailConfirmationCode = c.String(maxLength: 328, storeType: "nvarchar"),
+                    PasswordResetCode = c.String(maxLength: 328, storeType: "nvarchar"),
+                    LockoutEndDateUtc = c.DateTime(precision: 0),
+                    AccessFailedCount = c.Int(nullable: false),
+                    IsLockoutEnabled = c.Boolean(nullable: false),
+                    PhoneNumber = c.String(maxLength: 32, storeType: "nvarchar"),
+                    IsPhoneNumberConfirmed = c.Boolean(nullable: false),
+                    SecurityStamp = c.String(maxLength: 128, storeType: "nvarchar"),
+                    IsTwoFactorEnabled = c.Boolean(nullable: false),
+                    IsEmailConfirmed = c.Boolean(nullable: false),
+                    IsActive = c.Boolean(nullable: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_User_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                     { "DynamicFilter_User_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id)             
-                .Index(t => t.TenantId) ;
-            
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.CreatorUserId);
+
             CreateTable(
                 "dbo.AbpUserClaims",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        UserId = c.Long(nullable: false),
-                        ClaimType = c.String(maxLength: 256, storeType: "nvarchar"),
-                        ClaimValue = c.String(unicode: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    UserId = c.Long(nullable: false),
+                    ClaimType = c.String(maxLength: 256, storeType: "nvarchar"),
+                    ClaimValue = c.String(unicode: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserClaim_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id)               
+                .PrimaryKey(t => t.Id)
                 .Index(t => t.UserId);
-            
+
             CreateTable(
                 "dbo.AbpUserLogins",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        UserId = c.Long(nullable: false),
-                        LoginProvider = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        ProviderKey = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    UserId = c.Long(nullable: false),
+                    LoginProvider = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    ProviderKey = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserLogin_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserId);
-            
+
             CreateTable(
                 "dbo.AbpUserRoles",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        UserId = c.Long(nullable: false),
-                        RoleId = c.Int(nullable: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    UserId = c.Long(nullable: false),
+                    RoleId = c.Int(nullable: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserRole_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id)                 
+                .PrimaryKey(t => t.Id)
                 .Index(t => t.UserId);
 
             CreateTable(
@@ -610,73 +609,72 @@ namespace CXD.Migrations
                     { "DynamicFilter_Setting_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.AbpTenantNotifications",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        TenantId = c.Int(),
-                        NotificationName = c.String(nullable: false, maxLength: 96, storeType: "nvarchar"),
-                        Data = c.String(unicode: false),
-                        DataTypeName = c.String(maxLength: 512, storeType: "nvarchar"),
-                        EntityTypeName = c.String(maxLength: 250, storeType: "nvarchar"),
-                        EntityTypeAssemblyQualifiedName = c.String(maxLength: 512, storeType: "nvarchar"),
-                        EntityId = c.String(maxLength: 96, storeType: "nvarchar"),
-                        Severity = c.Byte(nullable: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Guid(nullable: false),
+                    TenantId = c.Int(),
+                    NotificationName = c.String(nullable: false, maxLength: 96, storeType: "nvarchar"),
+                    Data = c.String(unicode: false),
+                    DataTypeName = c.String(maxLength: 512, storeType: "nvarchar"),
+                    EntityTypeName = c.String(maxLength: 250, storeType: "nvarchar"),
+                    EntityTypeAssemblyQualifiedName = c.String(maxLength: 512, storeType: "nvarchar"),
+                    EntityId = c.String(maxLength: 96, storeType: "nvarchar"),
+                    Severity = c.Byte(nullable: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_TenantNotificationInfo_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.TenantId);
-            
+
             CreateTable(
                 "dbo.AbpTenants",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        EditionId = c.Int(),
-                        TenancyName = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
-                        Name = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        ConnectionString = c.String(maxLength: 1024, storeType: "nvarchar"),
-                        IsActive = c.Boolean(nullable: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    EditionId = c.Int(),
+                    TenancyName = c.String(nullable: false, maxLength: 64, storeType: "nvarchar"),
+                    Name = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    ConnectionString = c.String(maxLength: 1024, storeType: "nvarchar"),
+                    IsActive = c.Boolean(nullable: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_Tenant_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.EditionId);
-            
+                .PrimaryKey(t => t.Id);
+
             CreateTable(
                 "dbo.AbpUserAccounts",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        UserId = c.Long(nullable: false),
-                        UserLinkId = c.Long(),
-                        UserName = c.String(maxLength: 256, storeType: "nvarchar"),
-                        EmailAddress = c.String(maxLength: 256, storeType: "nvarchar"),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(precision: 0),
-                        LastModificationTime = c.DateTime(precision: 0),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    UserId = c.Long(nullable: false),
+                    UserLinkId = c.Long(),
+                    UserName = c.String(maxLength: 256, storeType: "nvarchar"),
+                    EmailAddress = c.String(maxLength: 256, storeType: "nvarchar"),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(precision: 0),
+                    LastModificationTime = c.DateTime(precision: 0),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserAccount_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
@@ -703,77 +701,75 @@ namespace CXD.Migrations
                 {
                     { "DynamicFilter_UserLoginAttempt_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.TenantId);
-             
+                .PrimaryKey(t => t.Id);
+
             CreateTable(
                 "dbo.AbpUserNotifications",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        TenantId = c.Int(),
-                        UserId = c.Long(nullable: false),
-                        TenantNotificationId = c.Guid(nullable: false),
-                        State = c.Int(nullable: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                    },
+                {
+                    Id = c.Guid(nullable: false),
+                    TenantId = c.Int(),
+                    UserId = c.Long(nullable: false),
+                    TenantNotificationId = c.Guid(nullable: false),
+                    State = c.Int(nullable: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserNotificationInfo_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.TenantId);
-            
+
             CreateTable(
                 "dbo.AbpUserOrganizationUnits",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        UserId = c.Long(nullable: false),
-                        OrganizationUnitId = c.Long(nullable: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        CreationTime = c.DateTime(nullable: false, precision: 0),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    UserId = c.Long(nullable: false),
+                    OrganizationUnitId = c.Long(nullable: false),
+                    IsDeleted = c.Boolean(nullable: false),
+                    CreationTime = c.DateTime(nullable: false, precision: 0),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "DynamicFilter_UserOrganizationUnit_MayHaveTenant", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                     { "DynamicFilter_UserOrganizationUnit_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.TenantId);
-            
+                .PrimaryKey(t => t.Id);
+
             CreateTable(
                 "dbo.vaisala_wxt536_view",
                 c => new
-                    {
-                        id = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        equipment_no = c.String(unicode: false),
-                        tp = c.String(unicode: false),
-                        sm = c.String(unicode: false),
-                        dm = c.String(unicode: false),
-                        pa = c.String(unicode: false),
-                        rd = c.String(unicode: false),
-                        rc = c.String(unicode: false),
-                    })
+                {
+                    id = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    equipment_no = c.String(unicode: false),
+                    tp = c.String(unicode: false),
+                    sm = c.String(unicode: false),
+                    dm = c.String(unicode: false),
+                    pa = c.String(unicode: false),
+                    rd = c.String(unicode: false),
+                    rc = c.String(unicode: false),
+                })
                 .PrimaryKey(t => t.id);
-            
+
             CreateTable(
                 "dbo.xylem_5400_view",
                 c => new
-                    {
-                        id = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
-                        equipment_no = c.String(unicode: false),
-                        cell_index = c.String(unicode: false),
-                        depth = c.String(unicode: false),
-                        horizontal_speed = c.String(unicode: false),
-                        direction = c.String(unicode: false),
-                    })
+                {
+                    id = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                    equipment_no = c.String(unicode: false),
+                    cell_index = c.String(unicode: false),
+                    depth = c.String(unicode: false),
+                    horizontal_speed = c.String(unicode: false),
+                    direction = c.String(unicode: false),
+                })
                 .PrimaryKey(t => t.id);
-            
+
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.AbpTenants", "LastModifierUserId", "dbo.AbpUsers");
