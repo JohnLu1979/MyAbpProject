@@ -32,7 +32,7 @@ namespace CXD.WmtRain
         public Task<CDataResults<CWeatherDto>> GetWeathers(CWeatherInput input)
         {
             //Extract data from DB
-            var query = this._weatherRepository.GetAll();
+            var query = this._weatherRepository.GetAll().Where(w => w.CompanyId == input.CompanyId);
             if (!string.IsNullOrEmpty(input.Title))
             {
                 query = query.Where(r => r.Title.Contains(input.Title));
@@ -65,7 +65,8 @@ namespace CXD.WmtRain
             {
                 Title = input.Title,
                 Type = input.Type.Value,
-                Content = input.Content
+                Content = input.Content,
+                CompanyId=input.CompanyId
             };
 
             var newWeatherId = this._weatherRepository.InsertAndGetId(newWeather);

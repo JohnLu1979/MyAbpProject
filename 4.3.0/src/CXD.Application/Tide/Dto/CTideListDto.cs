@@ -19,6 +19,7 @@ namespace CXD.Tide.Dto
         public virtual DateTime Ebb1 { get; set; }
         public virtual DateTime Flood2 { get; set; }
         public virtual DateTime Ebb2 { get; set; }
+        public virtual int CompanyId { get; set; }
     }
 
 }

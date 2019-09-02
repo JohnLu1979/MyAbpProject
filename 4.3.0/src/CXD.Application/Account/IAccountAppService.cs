@@ -19,5 +19,7 @@ namespace CXD.Account
         CDataResult<int> ChangePassword(AccountInput input);
         CDataResult<AccountListDto> ChangeStatus(AccountInput input);
 
+        CDataResults<AccountListDto> MobileLogin(AccountInput input);
+
     }
 }

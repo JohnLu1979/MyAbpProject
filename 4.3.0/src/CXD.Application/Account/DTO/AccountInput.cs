@@ -11,10 +11,10 @@ namespace CXD.Account.DTO
     {
 
         public virtual string searchContent { get; set; }
-
-        public virtual string AccountName { get; set; }
-
+        public virtual int CompanyId { get; set; }
         public virtual string UserName { get; set; }
+        public virtual string Account { get; set; }
+
         public virtual string Password { get; set; }
 
         public virtual string IMEICode { get; set; }

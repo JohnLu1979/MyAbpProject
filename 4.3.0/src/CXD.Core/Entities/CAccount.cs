@@ -16,7 +16,7 @@ namespace CXD.Entities
 
         public virtual int CompanyId { get; set; }
         [MaxLength(50)]
-        public virtual string AccountName { get; set; }
+        public virtual string Account{ get; set; }
         [MaxLength(50)]
         public virtual string UserName { get; set; }
         [MaxLength(50)]

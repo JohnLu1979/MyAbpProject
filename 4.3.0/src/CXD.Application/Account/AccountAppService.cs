@@ -37,7 +37,8 @@ namespace CXD.Account
             {
                 UserName = input.UserName,
                 Password = "111111",
-                AccountName = input.AccountName,
+                CompanyId = input.CompanyId,
+                Account = input.Account,
                 IMEICode = input.IMEICode,
                 IsActivated = input.IsActivated
             };
@@ -70,10 +71,10 @@ namespace CXD.Account
 
         public Task<CDataResults<AccountListDto>> GetAll(AccountInput input)
         {
-            var query = this._accountRepository.GetAll();
+            var query = this._accountRepository.GetAll().Where(w => w.CompanyId == input.CompanyId);
             if (!string.IsNullOrWhiteSpace(input.searchContent))
             {
-                query = query.Where(p => p.AccountName.Contains(input.searchContent) || p.UserName.Contains(input.searchContent));
+                query = query.Where(p => p.Account.Contains(input.searchContent) || p.UserName.Contains(input.searchContent));
             }
             if (!string.IsNullOrWhiteSpace(input.IsActivated))
             {
@@ -135,7 +136,7 @@ namespace CXD.Account
             else
             {
                 account.UserName = input.UserName;
-                account.AccountName = input.AccountName;
+                account.Account = input.Account;
                 account.IMEICode = input.IMEICode;
                 account.IsActivated = input.IsActivated;
                 account.Id = input.Id;
@@ -187,5 +188,60 @@ namespace CXD.Account
             }
             return result;
         }
+
+        public CDataResults<AccountListDto> MobileLogin(AccountInput input)
+        {
+
+            var result = new CDataResults<AccountListDto>()
+            {
+                IsSuccess = false,
+                ErrorMessage = "null",
+                Data = null,
+                Total = 0
+            };
+
+            var queryCode = this._accountRepository.GetAll().Where(w => w.IMEICode == input.IMEICode);
+            var total = queryCode.Count();
+            if (total < 1)
+            {
+                result.IsSuccess = false;
+                result.ErrorMessage = "IMEI码不存在，请联系管理员。";
+            }
+            else
+            {
+                var query = from u in this._accountRepository.GetAll().Where(p => p.Account == input.Account && p.Password == input.Password)
+                            select new AccountListDto
+                            {
+                                UserName = u.UserName,
+                                Account = u.Account,
+                                CompanyId = u.CompanyId,
+                                IMEICode = u.IMEICode,
+                                IsActivated = u.IsActivated
+                            };
+                var item = query.ToList();
+                if (item.Count() > 0)
+                {
+                    var account = item.Where(w => w.IsActivated == "1").ToList();
+                    if (account.Count() > 0)
+                    {
+                        result.IsSuccess = true;
+                        result.ErrorMessage = null;
+                        result.Data = item;
+                    }
+                    else
+                    {
+                        result.IsSuccess = false;
+                        result.ErrorMessage = "该账户已被禁用，请联系管理员。";
+                    }
+                }
+                else
+                {
+                    result.IsSuccess = false;
+                    result.ErrorMessage = "用户名或密码错误。";
+                }
+            }
+            return result;
+        }
     }
 }
+

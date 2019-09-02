@@ -26,7 +26,9 @@ namespace CXD.Login
             var query = from u in this._userRepository.GetAll().Where(p => p.UserName == input.UserName && p.Password == input.Password)
                         select new LoginListDto
                         {
-                            UserName = u.UserName
+                            UserName = u.UserName,
+                            CompanyId=u.CompanyId,
+                            UserType=u.UserType
                         };
             var item = query.ToList();
             var total = item.Count();

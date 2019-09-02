@@ -10,6 +10,7 @@ namespace CXD.CPictureService.Dto
     public class CPictureInput : CBaseInput
     {
         public virtual string Title { get; set; }
+        public virtual int CompanyId { get; set; }
         public virtual string ImgUrl { get; set; }
         public string File_Base64 { get; set; }
     }
