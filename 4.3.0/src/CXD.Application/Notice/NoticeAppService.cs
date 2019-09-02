@@ -27,7 +27,7 @@ namespace CXD.Notice
 
         public Task<CDataResults<NoticeListDto>> GetAll(NoticeInput input)
         {
-            var query = this._noticeRepository.GetAll();
+            var query = this._noticeRepository.GetAll().Where(w => w.CompanyId == input.CompanyId);
             if (input.Title != null)
             {
                 query = query.Where(p => p.Title.Contains(input.Title));
@@ -113,7 +113,8 @@ namespace CXD.Notice
                 Title = input.Title,
                 NewsAuthor = input.NewsAuthor,
                 DisplayIndex = input.DisplayIndex,
-                NewsContent = input.NewsContent
+                NewsContent = input.NewsContent,
+                CompanyId = input.CompanyId
             };
 
             var newNoticeId = this._noticeRepository.InsertAndGetId(newNotice);

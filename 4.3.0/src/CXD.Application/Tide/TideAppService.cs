@@ -70,7 +70,8 @@ namespace CXD.WmtRain
                 Ebb1 =input.Ebb1,
                 Ebb2 = input.Ebb2,
                 Flood1 = input.Flood1,
-                Flood2 = input.Flood2
+                Flood2 = input.Flood2,
+                CompanyId=input.CompanyId
             };
 
             var newTideId = this._TideRepository.InsertAndGetId(newTide);

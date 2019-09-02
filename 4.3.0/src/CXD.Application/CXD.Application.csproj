@@ -231,6 +231,10 @@
     <Compile Include="Base\Dto\CBaseInput.cs" />
     <Compile Include="Base\Dto\CDataResults.cs" />
     <Compile Include="Common\ExcelExporter.cs" />
+    <Compile Include="Company\CompanyAppService.cs" />
+    <Compile Include="Company\Dto\CompanyInput.cs" />
+    <Compile Include="Company\Dto\CompanyListDto.cs" />
+    <Compile Include="Company\ICompanyAppService.cs" />
     <Compile Include="CPicture\CpictureAppService.cs" />
     <Compile Include="CPicture\Dto\CPictureInput.cs" />
     <Compile Include="CPicture\Dto\CPictureListDto.cs" />

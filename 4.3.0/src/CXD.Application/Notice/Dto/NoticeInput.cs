@@ -13,5 +13,6 @@ namespace CXD.Notice.Dto
         public virtual string NewsAuthor { get; set; }
         public virtual int? DisplayIndex { get; set; }
         public virtual string NewsContent { get; set; }
+        public virtual int CompanyId { get; set; }
     }
 }

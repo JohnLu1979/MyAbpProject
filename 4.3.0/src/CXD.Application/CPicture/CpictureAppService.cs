@@ -26,7 +26,7 @@ namespace CXD.CPictureService
 
         public Task<CDataResults<CPictureListDto>> GetPictrues(CPictureInput input)
         {
-            var query = this._pictureRepository.GetAll();
+            var query = this._pictureRepository.GetAll().Where(w => w.CompanyId == input.CompanyId);
             if (!string.IsNullOrWhiteSpace(input.Title))
             {
                 query = query.Where(p => p.Title.Contains(input.Title) || p.Title.Contains(input.Title));
@@ -62,7 +62,8 @@ namespace CXD.CPictureService
             var newPicture = new CPicture()
             {
                 Title = input.Title,
-                ImgUrl = input.ImgUrl
+                ImgUrl = input.ImgUrl,
+                CompanyId=input.CompanyId
 
             };
 

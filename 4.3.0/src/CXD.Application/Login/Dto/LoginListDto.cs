@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 namespace CXD.Login.Dto
 {
     [AutoMapFrom(typeof(CXD.Entities.CUser))]
-  public  class LoginListDto : Entity<int>
+    public class LoginListDto : Entity<int>
     {
         public virtual string UserName { get; set; }
 
         public virtual string Password { get; set; }
+
+        public virtual int CompanyId { get; set; }
+        public virtual string UserType { get; set; }
     }
 }

@@ -37,6 +37,7 @@ namespace CXD.Account
             {
                 UserName = input.UserName,
                 Password = "111111",
+                CompanyId = input.CompanyId,
                 AccountName = input.AccountName,
                 IMEICode = input.IMEICode,
                 IsActivated = input.IsActivated
@@ -70,7 +71,7 @@ namespace CXD.Account
 
         public Task<CDataResults<AccountListDto>> GetAll(AccountInput input)
         {
-            var query = this._accountRepository.GetAll();
+            var query = this._accountRepository.GetAll().Where(w=>w.CompanyId==input.CompanyId);
             if (!string.IsNullOrWhiteSpace(input.searchContent))
             {
                 query = query.Where(p => p.AccountName.Contains(input.searchContent) || p.UserName.Contains(input.searchContent));
