@@ -212,6 +212,7 @@ namespace CXD.Account
                 var query = from u in this._accountRepository.GetAll().Where(p => p.Account == input.Account && p.Password == input.Password)
                             select new AccountListDto
                             {
+                                Id=u.Id,
                                 UserName = u.UserName,
                                 Account = u.Account,
                                 CompanyId = u.CompanyId,
