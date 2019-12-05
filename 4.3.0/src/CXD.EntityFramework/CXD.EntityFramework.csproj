@@ -231,9 +231,9 @@
     <Compile Include="EntityFramework\CXDDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CXDRepositoryBase.cs" />
     <Compile Include="CXDDataModule.cs" />
-    <Compile Include="Migrations\201909021526226_modify-account.cs" />
-    <Compile Include="Migrations\201909021526226_modify-account.Designer.cs">
-      <DependentUpon>201909021526226_modify-account.cs</DependentUpon>
+    <Compile Include="Migrations\201912050139562_initail_database.cs" />
+    <Compile Include="Migrations\201912050139562_initail_database.Designer.cs">
+      <DependentUpon>201912050139562_initail_database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -257,8 +257,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909021526226_modify-account.resx">
-      <DependentUpon>201909021526226_modify-account.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912050139562_initail_database.resx">
+      <DependentUpon>201912050139562_initail_database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
