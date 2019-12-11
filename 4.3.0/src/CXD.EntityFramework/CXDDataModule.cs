@@ -11,8 +11,8 @@ namespace CXD
     {
         public override void PreInitialize()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<CXDDbContext>());
-
+            //Database.SetInitializer(new CreateDatabaseIfNotExists<CXDDbContext>());
+            Database.SetInitializer<CXDDbContext>(null);
             Configuration.DefaultNameOrConnectionString = "Default";
         }
 
