@@ -27,6 +27,8 @@ namespace CXD.EntityFramework
         public virtual IDbSet<CCompany> Companys { get; set; }
 
         public virtual IDbSet<xylem_5400_view> xylem { get; set; }
+
+        public virtual IDbSet<CSeaTemperature> CSeaTemperatureObjects { get; set; }
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not

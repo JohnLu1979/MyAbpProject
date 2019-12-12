@@ -231,6 +231,7 @@
     <Compile Include="EntityFramework\CXDDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CXDRepositoryBase.cs" />
     <Compile Include="CXDDataModule.cs" />
+    <Compile Include="EntityFramework\Repositories\SQLQuery\SqlExecuter.cs" />
     <Compile Include="Migrations\201912050139562_initail_database.cs" />
     <Compile Include="Migrations\201912050139562_initail_database.Designer.cs">
       <DependentUpon>201912050139562_initail_database.cs</DependentUpon>
