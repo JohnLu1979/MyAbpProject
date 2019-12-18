@@ -15,6 +15,8 @@ namespace CXD.Entities
         public virtual int CompanyId { get; set; }
         public virtual string Title { get; set; }
         public virtual string ImgUrl { get; set; }
+
+        public virtual int DisplayIndex { get; set; }
         public virtual string IsActivated { get; set; }
 
 
