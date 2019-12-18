@@ -30,6 +30,12 @@ namespace CXD.Api
 
             var cors = new EnableCorsAttribute("*", "*", "*");
             GlobalConfiguration.Configuration.EnableCors(cors);
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Converters.Add(
+                 new Newtonsoft.Json.Converters.IsoDateTimeConverter()
+                 {
+                     DateTimeFormat = "yyyy-MM-dd HH:mm:ss"
+                 }
+                );
 
             ConfigureSwaggerUi();
         }
