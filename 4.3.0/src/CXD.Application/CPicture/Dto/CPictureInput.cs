@@ -11,6 +11,7 @@ namespace CXD.CPictureService.Dto
     {
         public virtual string Title { get; set; }
         public virtual int CompanyId { get; set; }
+        public virtual int DisplayIndex { get; set; }
         public virtual string ImgUrl { get; set; }
         public string File_Base64 { get; set; }
     }

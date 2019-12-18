@@ -34,7 +34,7 @@ namespace CXD.CPictureService
             var total = query.Count();
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
-                query = query.OrderByDescending(r => r.Id).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
+                query = query.OrderBy(r => r.DisplayIndex).Take(input.pageSize.Value * input.pageNumber.Value).Skip(input.pageSize.Value * (input.pageNumber.Value - 1));
             }
             var result = query.ToList().MapTo<List<CPictureListDto>>();
 
@@ -63,7 +63,8 @@ namespace CXD.CPictureService
             {
                 Title = input.Title,
                 ImgUrl = input.ImgUrl,
-                CompanyId=input.CompanyId
+                DisplayIndex = input.DisplayIndex,
+                CompanyId = input.CompanyId
 
             };
 
@@ -93,6 +94,7 @@ namespace CXD.CPictureService
             {
                 picture.Title = input.Title;
                 picture.ImgUrl = input.ImgUrl;
+                picture.DisplayIndex = input.DisplayIndex;
                 picture.Id = input.Id;
             }
 
@@ -161,7 +163,7 @@ namespace CXD.CPictureService
         }
 
 
-       public CDataResult<CPictureListDto> GetPicDetail(CPictureInput input)
+        public CDataResult<CPictureListDto> GetPicDetail(CPictureInput input)
         {
             var item = this._pictureRepository.Get(input.Id);
             if (item == null)

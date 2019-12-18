@@ -23,7 +23,7 @@ namespace CXD.Account
         }
         public CDataResult<int> Add(AccountInput input)
         {
-            var query = this._accountRepository.GetAll().Where(r => r.UserName == input.UserName);
+            var query = this._accountRepository.GetAll().Where(r => r.Account == input.Account);
             if (query.Count() > 0)
             {
                 return new CDataResult<int>()
@@ -36,7 +36,7 @@ namespace CXD.Account
             var newAccount = new CAccount()
             {
                 UserName = input.UserName,
-                Password = "111111",
+                Password = input.Password,
                 CompanyId = input.CompanyId,
                 Account = input.Account,
                 IMEICode = input.IMEICode,
@@ -138,6 +138,7 @@ namespace CXD.Account
                 account.UserName = input.UserName;
                 account.Account = input.Account;
                 account.IMEICode = input.IMEICode;
+                account.Password = input.Password;
                 account.IsActivated = input.IsActivated;
                 account.Id = input.Id;
             }
