@@ -20,5 +20,6 @@ namespace CXD.Account.DTO
 
         public virtual string IMEICode { get; set; }
         public virtual string IsActivated { get; set; }
+        public virtual string Equipments { get; set; }
     }
 }

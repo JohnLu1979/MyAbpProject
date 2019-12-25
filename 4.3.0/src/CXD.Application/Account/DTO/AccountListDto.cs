@@ -18,7 +18,7 @@ namespace CXD.Account.DTO
         public virtual string Account { get; set; }
 
         public virtual string Password { get; set; }
-
+        public virtual string Equipments { get; set; }
         public virtual string IMEICode { get; set; }
         public virtual string IsActivated { get; set; }
     }

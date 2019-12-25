@@ -24,6 +24,7 @@ namespace CXD.Entities
  
         public virtual string IMEICode { get; set; }
 
+        public virtual string Equipments { get; set; }
         public virtual string IsActivated { get; set; }
 
     }

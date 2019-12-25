@@ -40,6 +40,7 @@ namespace CXD.Account
                 CompanyId = input.CompanyId,
                 Account = input.Account,
                 IMEICode = input.IMEICode,
+                Equipments=input.Equipments,
                 IsActivated = input.IsActivated
             };
 
@@ -139,6 +140,7 @@ namespace CXD.Account
                 account.Account = input.Account;
                 account.IMEICode = input.IMEICode;
                 account.Password = input.Password;
+                account.Equipments = input.Equipments;
                 account.IsActivated = input.IsActivated;
                 account.Id = input.Id;
             }
@@ -217,6 +219,7 @@ namespace CXD.Account
                                 UserName = u.UserName,
                                 Account = u.Account,
                                 CompanyId = u.CompanyId,
+                                Equipments=u.Equipments,
                                 IMEICode = u.IMEICode,
                                 IsActivated = u.IsActivated
                             };
