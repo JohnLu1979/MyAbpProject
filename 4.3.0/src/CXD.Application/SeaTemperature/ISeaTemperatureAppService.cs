@@ -8,5 +8,6 @@ namespace CXD.SeaTemperature
     public interface ISeaTemperatureAppService : IApplicationService
     {
         Task<CDataResults<CSeaTemperatureDto>> GetSeaTemperatureByToday(CSeaTemperatureInput input);
+        Task<CDataResults<CUnusualDto>> GetUnusualData(CSeaTemperatureInput input);
     }
 }

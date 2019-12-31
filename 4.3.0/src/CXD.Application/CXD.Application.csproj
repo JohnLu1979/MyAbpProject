@@ -273,6 +273,7 @@
     <Compile Include="Roles\IRoleAppService.cs" />
     <Compile Include="SeaTemperature\Dto\CSeaTemperatureInput.cs" />
     <Compile Include="SeaTemperature\Dto\CSeaTemperatureListDto.cs" />
+    <Compile Include="SeaTemperature\Dto\CUnusualDto.cs" />
     <Compile Include="SeaTemperature\ISeaTemperatureAppService.cs" />
     <Compile Include="SeaTemperature\SeaTemperatureAppService.cs" />
     <Compile Include="Users\Dto\CreateUserDto.cs" />
