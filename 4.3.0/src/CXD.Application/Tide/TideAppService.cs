@@ -42,6 +42,14 @@ namespace CXD.WmtRain
             {
                 query = query.Where(r => r.PublicDate <= input.PublicDateTo);
             }
+            if (input.CompanyId > 0)
+            {
+                query = query.Where(r => r.CompanyId <= input.CompanyId);
+            }
+            if (!string.IsNullOrEmpty(input.StationCode))
+            {
+                query = query.Where(r => r.StationCode == input.StationCode);
+            }
             var total = query.Count();
             if (input.pageNumber.HasValue && input.pageNumber.Value > 0 && input.pageSize.HasValue)
             {
@@ -66,12 +74,15 @@ namespace CXD.WmtRain
             var newTide = new CTide()
             {
                 PublicDate = input.PublicDate,
-                MoonDate = input.MoonDate,
-                Ebb1 =input.Ebb1,
-                Ebb2 = input.Ebb2,
-                Flood1 = input.Flood1,
-                Flood2 = input.Flood2,
-                CompanyId=input.CompanyId
+                FloodTime1 = input.FloodTime1,
+                FloodHigh1 = input.FloodHigh1,
+                FloodTime2 = input.FloodTime2,
+                FloodHigh2 = input.FloodHigh2,
+                FloodTime3 = input.FloodTime3,
+                FloodHigh3 = input.FloodHigh3,
+                FloodTime4 = input.FloodTime4,
+                FloodHigh4 = input.FloodHigh4,
+                CompanyId =input.CompanyId
             };
 
             var newTideId = this._TideRepository.InsertAndGetId(newTide);
@@ -96,11 +107,14 @@ namespace CXD.WmtRain
                 result.IsSuccess = false;
             }
             Tide.PublicDate = input.PublicDate;
-            Tide.MoonDate = input.MoonDate;
-            Tide.Ebb1 = input.Ebb1;
-            Tide.Ebb2 = input.Ebb2;
-            Tide.Flood1 = input.Flood1;
-            Tide.Flood2 = input.Flood2;
+            Tide.FloodTime1 = input.FloodTime1;
+            Tide.FloodHigh1 = input.FloodHigh1;
+            Tide.FloodTime2 = input.FloodTime2;
+            Tide.FloodHigh2 = input.FloodHigh2;
+            Tide.FloodTime3 = input.FloodTime3;
+            Tide.FloodHigh3 = input.FloodHigh3;
+            Tide.FloodTime4 = input.FloodTime4;
+            Tide.FloodHigh4 = input.FloodHigh4;
 
             var updatedTide = this._TideRepository.Update(Tide);
 
@@ -153,15 +167,24 @@ namespace CXD.WmtRain
         {
             List<CTide> tides  =this._TideRepository.GetAll().ToList();
             string sheetName = "潮汐时间表";
-            const int columnCount = 6;
-            string[] header = new string[columnCount] { "公历日期", "阴历日期", "涨潮", "退潮", "涨潮", "退潮" };
+            const int columnCount = 9;
+            //string[] header = new string[columnCount] { "公历日期", "阴历日期", "涨潮", "退潮", "涨潮", "退潮" };
+            string[] header = new string[columnCount] { "公历日期", "潮时1", "潮高1", "潮时2", "潮高2", "潮时3", "潮高3", "潮时4", "潮高4" };
             Func<CTide, object>[] propertySelectors = new Func<CTide, object>[columnCount] {
                 new Func<CTide, string>(l => l.PublicDate.ToString("yyyy-MM-dd")),
-                new Func<CTide, string>(l => l.MoonDate),
-                new Func<CTide, string>(l => l.Flood1.ToString("HH:mm:ss")),
-                new Func<CTide, string>(l => l.Ebb1.ToString("HH:mm:ss")),
-                new Func<CTide, string>(l => l.Flood2.ToString("HH:mm:ss")),
-                new Func<CTide, string>(l => l.Ebb2.ToString("HH:mm:ss"))
+                //new Func<CTide, string>(l => l.MoonDate),
+                //new Func<CTide, string>(l => l.Flood1.ToString("HH:mm:ss")),
+                //new Func<CTide, string>(l => l.Ebb1.ToString("HH:mm:ss")),
+                //new Func<CTide, string>(l => l.Flood2.ToString("HH:mm:ss")),
+                //new Func<CTide, string>(l => l.Ebb2.ToString("HH:mm:ss"))
+                new Func<CTide, string>(l => l.FloodTime1),
+                new Func<CTide, string>(l => l.FloodHigh1),
+                new Func<CTide, string>(l => l.FloodTime2),
+                new Func<CTide, string>(l => l.FloodHigh2),
+                new Func<CTide, string>(l => l.FloodTime3),
+                new Func<CTide, string>(l => l.FloodHigh3),
+                new Func<CTide, string>(l => l.FloodTime4),
+                new Func<CTide, string>(l => l.FloodHigh4)
             };
             string filePath = ExcelExporter<CTide>.GenerateFile("Tide_",sheetName,tides,header,propertySelectors);
 
@@ -179,7 +202,7 @@ namespace CXD.WmtRain
             MemoryStream ms = new MemoryStream(buffer);
             string sheetName = "潮汐时间表";
             string defaultDatePrefix = "1980-01-01 ";
-            List<object[]> dataList = ExcelExporter<CTide>.ReadFile(ms, sheetName,20000,6,2);
+            List<object[]> dataList = ExcelExporter<CTide>.ReadFile(ms, sheetName,20000,9,2);
             List<CTide> tideList = new List<CTide>();
             for (int i = 0; i < dataList.Count; i++)
             {
@@ -187,20 +210,29 @@ namespace CXD.WmtRain
                 CTide tide = new CTide();
                 DateTime publicDate;
                 if (!DateTime.TryParse(tideData[0].ToString(), out publicDate)) continue;
-                tide.PublicDate = publicDate;                
-                tide.MoonDate = tideData[1].ToString();
-                DateTime flood1Time;
-                if (!DateTime.TryParse(defaultDatePrefix + tideData[2].ToString(), out flood1Time)) continue;
-                tide.Flood1 = flood1Time;
-                DateTime ebb1Time;
-                if (!DateTime.TryParse(defaultDatePrefix + tideData[3].ToString(), out ebb1Time)) continue;
-                tide.Ebb1 = ebb1Time;
-                DateTime flood2Time;
-                if (!DateTime.TryParse(defaultDatePrefix + tideData[4].ToString(), out flood2Time)) continue;
-                tide.Flood2 = flood2Time;
-                DateTime ebb2Time;
-                if (!DateTime.TryParse(defaultDatePrefix + tideData[5].ToString(), out ebb2Time)) continue;
-                tide.Ebb2 = ebb2Time;
+                tide.PublicDate = publicDate;
+                //tide.MoonDate = tideData[1].ToString();
+                //DateTime flood1Time;
+                //if (!DateTime.TryParse(defaultDatePrefix + tideData[2].ToString(), out flood1Time)) continue;
+                //tide.Flood1 = flood1Time;
+                //DateTime ebb1Time;
+                //if (!DateTime.TryParse(defaultDatePrefix + tideData[3].ToString(), out ebb1Time)) continue;
+                //tide.Ebb1 = ebb1Time;
+                //DateTime flood2Time;
+                //if (!DateTime.TryParse(defaultDatePrefix + tideData[4].ToString(), out flood2Time)) continue;
+                //tide.Flood2 = flood2Time;
+                //DateTime ebb2Time;
+                //if (!DateTime.TryParse(defaultDatePrefix + tideData[5].ToString(), out ebb2Time)) continue;
+                //tide.Ebb2 = ebb2Time;
+                //tide.PublicDate = tideData[0] == null ? string.Empty : tideData[1].ToString();
+                tide.FloodTime1 = tideData[1] == null ?string.Empty:tideData[1].ToString();
+                tide.FloodHigh1 = tideData[2] == null ? string.Empty : tideData[2].ToString();
+                tide.FloodTime2 = tideData[3] == null ? string.Empty : tideData[3].ToString();
+                tide.FloodHigh2 = tideData[4] == null ? string.Empty : tideData[4].ToString();
+                tide.FloodTime3 = tideData[5] == null ? string.Empty : tideData[5].ToString();
+                tide.FloodHigh3 = tideData[6] == null ? string.Empty : tideData[6].ToString();
+                tide.FloodTime4 = tideData[7] == null ? string.Empty : tideData[7].ToString();
+                tide.FloodHigh4 = tideData[8] == null ? string.Empty : tideData[8].ToString();
                 tideList.Add(tide);
             }
             List<CTide> oldTides = _TideRepository.GetAll().ToList();

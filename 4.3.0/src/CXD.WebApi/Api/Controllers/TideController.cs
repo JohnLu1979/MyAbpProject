@@ -34,11 +34,6 @@ namespace CXD.Api.Controllers
             int rowCount = 0;
             var list = this._tideRepository.GetAll().Select(t => new TideList {
                 PublicDate = t.PublicDate.ToString(),
-                MoonDate = t.MoonDate,
-                Flood1 = t.Flood1.ToString(),
-                Ebb1 = t.Ebb1.ToString(),
-                Flood2 = t.Flood2.ToString(),
-                Ebb2 = t.Ebb2.ToString()
             }).ToList();
             string fileName = "List.xlsx";
             string sheetName = "列表";
