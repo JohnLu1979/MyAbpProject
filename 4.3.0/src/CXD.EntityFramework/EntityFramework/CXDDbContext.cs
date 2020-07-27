@@ -23,7 +23,8 @@ namespace CXD.EntityFramework
         public virtual IDbSet<CPicture> CPictures { get; set; }
 
         public virtual IDbSet<vaisala_wxt536_view> vaisala { get; set; }
-        
+        public virtual IDbSet<VaisalaAWS> vaisalaAWS { get; set; }
+
         public virtual IDbSet<CCompany> Companys { get; set; }
 
         public virtual IDbSet<xylem_5400_view> xylem { get; set; }

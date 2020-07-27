@@ -291,6 +291,11 @@
     <Compile Include="Tide\Dto\CTideListDto.cs" />
     <Compile Include="Tide\ITideAppService.cs" />
     <Compile Include="Tide\TideAppService.cs" />
+    <Compile Include="VaisalaAWS\Dto\VaisalaAWSInput.cs" />
+    <Compile Include="VaisalaAWS\Dto\VaisalaAWSTaListDto.cs" />
+    <Compile Include="VaisalaAWS\Dto\VaisalaAWSListDto.cs" />
+    <Compile Include="VaisalaAWS\IVaisalaAWSAppService.cs" />
+    <Compile Include="VaisalaAWS\VaisalaAWSAppService.cs" />
     <Compile Include="vaisala_wxt536_view\Dto\VaisalaInput.cs" />
     <Compile Include="vaisala_wxt536_view\Dto\VaisalaListDto.cs" />
     <Compile Include="vaisala_wxt536_view\IVaisalaAppService.cs" />

@@ -220,6 +220,7 @@
     <Compile Include="Entities\CAccount.cs" />
     <Compile Include="Entities\CNotice.cs" />
     <Compile Include="Entities\CPicture.cs" />
+    <Compile Include="Entities\VaisalaAWS.cs" />
     <Compile Include="Entities\vaisala_wxt536_view.cs" />
     <Compile Include="Entities\xylem_5400_view.cs" />
     <Compile Include="Features\FeatureValueStore.cs" />
