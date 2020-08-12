@@ -239,6 +239,10 @@
     <Compile Include="CPicture\Dto\CPictureInput.cs" />
     <Compile Include="CPicture\Dto\CPictureListDto.cs" />
     <Compile Include="CPicture\ICpictureAppService.cs" />
+    <Compile Include="Current\CurrentAppService.cs" />
+    <Compile Include="Current\Dto\CurrentDto.cs" />
+    <Compile Include="Current\Dto\CurrentInput.cs" />
+    <Compile Include="Current\ICurrentAppService.cs" />
     <Compile Include="CXDApplicationModule.cs" />
     <Compile Include="CXDAppServiceBase.cs" />
     <Compile Include="Authorization\Accounts\AccountAppService.cs" />
