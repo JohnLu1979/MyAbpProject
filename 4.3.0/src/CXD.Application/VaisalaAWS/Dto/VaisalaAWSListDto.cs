@@ -9,7 +9,7 @@ namespace CXD.VaisalaAWS.Dto
 {
     public class VaisalaAWSListDto
     {
-        public virtual DateTime Obstime { get; set; }
+        public virtual string Obstime { get; set; }
         public virtual string Sno { get; set; }
         public virtual string Dm { get; set; }
         public virtual string Sm { get; set; }

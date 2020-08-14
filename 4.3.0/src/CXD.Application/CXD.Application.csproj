@@ -227,6 +227,8 @@
     <Compile Include="Account\DTO\AccountInput.cs" />
     <Compile Include="Account\DTO\AccountListDto.cs" />
     <Compile Include="Account\IAccountAppService.cs" />
+    <Compile Include="AutoSite\AutoSiteAppService.cs" />
+    <Compile Include="AutoSite\IAutoSiteAppService.cs" />
     <Compile Include="Base\CBaseAppService.cs" />
     <Compile Include="Base\Dto\CBaseInput.cs" />
     <Compile Include="Base\Dto\CDataResults.cs" />
