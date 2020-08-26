@@ -112,35 +112,58 @@ namespace CXD.VaisalaAWS
         public Task<CDataResult<VaisalaAWSTaShelfDto>> GetVaisalaAWSTaShelfByToday()
         {
             VaisalaAWSTaShelfDto result = new VaisalaAWSTaShelfDto();
+            result.currentTa = string.Empty;
+            result.maxTa = string.Empty;
+            result.minTa = string.Empty;
+            result.averageTa = string.Empty;
             DateTime nextDate = DateTime.Today.AddDays(1);
             string sql = "select top 1 cast(ta as decimal) from VaisalaAWS";
             sql += " where obstime >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
             sql += " and obstime < '" + nextDate.ToString("yyyy-MM-dd") + "'";
 
             var currentTa = _sqlExecuter.SqlQuery<decimal>(sql);
-            result.currentTa = Decimal.Round(currentTa.First(), 1).ToString();
+            if (currentTa.Count() > 0)
+            {
+                result.currentTa = Decimal.Round(currentTa.First(), 1).ToString();
+            }
 
-
-            sql = "select max(cast(ta as decimal)) as ta from VaisalaAWS";
+            sql = "select count(*) as c from VaisalaAWS";
             sql += " where obstime >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
             sql += " and obstime < '" + nextDate.ToString("yyyy-MM-dd") + "'";
 
-            var maxTa = _sqlExecuter.SqlQuery<decimal>(sql);
-            result.maxTa = Decimal.Round(maxTa.First(), 1).ToString();
+            var countTa = _sqlExecuter.SqlQuery<int>(sql);
+            if (countTa.First() > 0)
+            {
+                sql = "select max(cast(ta as decimal)) as ta from VaisalaAWS";
+                sql += " where obstime >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
+                sql += " and obstime < '" + nextDate.ToString("yyyy-MM-dd") + "'";
 
-            sql = "select min(cast(ta as decimal)) as ta from VaisalaAWS";
-            sql += " where obstime >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
-            sql += " and obstime < '" + nextDate.ToString("yyyy-MM-dd") + "'";
+                var maxTa = _sqlExecuter.SqlQuery<decimal>(sql);
+                if (maxTa.FirstOrDefault() > 0)
+                {
+                    result.maxTa = Decimal.Round(maxTa.First(), 1).ToString();
+                }
 
-            var minTa = _sqlExecuter.SqlQuery<decimal>(sql);
-            result.minTa = Decimal.Round(minTa.First(), 1).ToString();
+                sql = "select min(cast(ta as decimal)) as ta from VaisalaAWS";
+                sql += " where obstime >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
+                sql += " and obstime < '" + nextDate.ToString("yyyy-MM-dd") + "'";
 
-            sql = "select avg(cast(ta as decimal)) as ta from VaisalaAWS";
-            sql += " where obstime >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
-            sql += " and obstime < '" + nextDate.ToString("yyyy-MM-dd") + "'";
+                var minTa = _sqlExecuter.SqlQuery<decimal>(sql);
+                if (minTa.Count() > 0)
+                {
+                    result.minTa = Decimal.Round(minTa.First(), 1).ToString();
+                }
 
-            var averageTa = _sqlExecuter.SqlQuery<decimal>(sql);
-            result.averageTa = Decimal.Round(averageTa.First(), 1).ToString();
+                sql = "select avg(cast(ta as decimal)) as ta from VaisalaAWS";
+                sql += " where obstime >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
+                sql += " and obstime < '" + nextDate.ToString("yyyy-MM-dd") + "'";
+
+                var averageTa = _sqlExecuter.SqlQuery<decimal>(sql);
+                if (averageTa.Count() > 0)
+                {
+                    result.averageTa = Decimal.Round(averageTa.First(), 1).ToString();
+                }
+            }
 
             return Task.FromResult(new CDataResult<VaisalaAWSTaShelfDto>()
             {
